@@ -99,17 +99,17 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 sudo apt-get update && sudo apt-get install spotify-client -y
 
-######################### Atom #########################
-
-echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" | sudo tee //etc/apt/sources.list.d/atom.list
-wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
-sudo apt-get update && sudo apt-get install atom -y
-
 ######################### Etcher #########################
 
 echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
 sudo apt update && sudo apt install balena-etcher-electron -y
+
+######################### Chrome #########################
+
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo apt-get update && sudo apt-get install google-chrome-stable -y
 
 ######################### Resilio Sync #########################
 
@@ -122,11 +122,11 @@ sudo systemctl enable resilio-sync && sudo systemctl start resilio-sync
 
 mkdir -p /tmp/setup
 
-######################### Chrome #########################
+######################### Visual Studio Code #########################
 
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo apt-get update && sudo apt-get install google-chrome-stable -y
+wget -O /tmp/setup/vscode.deb https://az764295.vo.msecnd.net/stable/9579eda04fdb3a9bba2750f15193e5fafe16b959/code_1.41.0-1576089540_amd64.deb
+sudo dpkg -i /tmp/setup/vscode.deb
+sudo apt update && sudo apt install vscode -y
 
 ######################### TeamViewer #########################
 
