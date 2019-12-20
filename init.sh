@@ -226,7 +226,6 @@ gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Naut
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
-gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-dominant-color true
 gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.desktop-icons show-home false
