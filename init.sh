@@ -19,7 +19,6 @@ sudo apt install -y \
   k4dirstat \
   make \
   maven \
-  npm \
   openjdk-8-jdk \
   python3 \
   python3-pip
@@ -51,6 +50,7 @@ stack install hindent stylish-haskell
 
 ######################### Node #########################
 
+sudo apt update && sudo apt install npm -y
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
