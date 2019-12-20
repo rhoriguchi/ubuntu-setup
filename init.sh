@@ -84,18 +84,18 @@ sudo chmod +x /usr/local/bin/docker-compose
 ######################### qBittorrent #########################
 
 sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
-sudo apt-get update && sudo apt install qbittorrent -y
+sudo apt update && sudo apt install qbittorrent -y
 
 ######################### GIMP #########################
 
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y
-sudo apt-get update && sudo apt-get install gimp -y
+sudo apt update && sudo apt install gimp -y
 
 ######################### Spotify #########################
 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
-sudo apt-get update && sudo apt-get install spotify-client -y
+sudo apt update && sudo apt install spotify-client -y
 
 ######################### Etcher #########################
 
@@ -107,13 +107,13 @@ sudo apt update && sudo apt install balena-etcher-electron -y
 
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo apt-get update && sudo apt-get install google-chrome-stable -y
+sudo apt update && sudo apt install google-chrome-stable -y
 
 ######################### Chrome #########################
 
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo apt-get update && sudo apt-get install google-chrome-stable -y
+sudo apt update && sudo apt install google-chrome-stable -y
 
 ######################### Resilio Sync #########################
 
@@ -190,7 +190,7 @@ tar -C /tmp/setup -xzf /tmp/setup/foxitReader.tar.gz
 
 # can't find package
 # sudo add-apt-repository ppa:caffeine-developers/caffeine-dev -y
-# sudo apt-get update && sudo apt-get install caffeine -y
+# sudo apt update && sudo apt install caffeine -y
 
 ######################### postman #########################
 
