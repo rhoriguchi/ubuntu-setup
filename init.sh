@@ -14,14 +14,13 @@ sudo apt install -y \
   filezilla \
   firefox \
   git \
-  libreoffice \
   htop \
   k4dirstat \
+  libreoffice \
   make \
   maven \
   openjdk-8-jdk \
-  python3 \
-  python3-pip
+  steam \
   thunderbird \
   thunderbird-gnome-support \
   thunderbird-locale-de-ch \
@@ -54,7 +53,16 @@ sudo apt update && sudo apt install npm -y
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
+
 sudo npm install -g typescript
+
+######################### python #########################
+
+sudo apt install -y \
+  python3 \
+  python3-pip
+  
+sudo pip install -U --user pylint
 
 ######################### Docker #########################
 
@@ -125,19 +133,25 @@ mkdir -p /tmp/setup
 
 wget -O /tmp/setup/vscode.deb https://az764295.vo.msecnd.net/stable/9579eda04fdb3a9bba2750f15193e5fafe16b959/code_1.41.0-1576089540_amd64.deb
 sudo dpkg -i /tmp/setup/vscode.deb
-sudo apt update && sudo apt install vscode -y
+sudo apt update && sudo apt install -f -y
+
+######################### Discord #########################
+
+wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb
+sudo dpkg -i /tmp/setup/discord.deb
+sudo apt update && sudo apt install -f -y
 
 ######################### TeamViewer #########################
 
 wget -O /tmp/setup/teamviewer.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 sudo dpkg -i /tmp/setup/teamviewer.deb
-sudo apt update && sudo apt install teamviewer -y
+sudo apt update && sudo apt install -f -y
 
 ######################### NordVpn #########################
 
 wget -O /tmp/setup/nordvpn.deb sudo dpkg -i /pathToFile/nordvpn-release_1.0.0_all.deb
 sudo dpkg -i /tmp/setup/nordvpn.deb
-sudo apt update && sudo apt install nordvpn -y
+sudo apt update && sudo apt install -f -y
 nordvpn login
 nordvpn set cybersec on
 
@@ -161,7 +175,7 @@ Icon=utilities-terminal" | sudo tee /usr/share/applications/NordVPNDisconnect.de
 
 wget -O /tmp/setup/gitkraken.deb https://release.axocdn.com/linux/gitkraken-amd64.deb
 sudo dpkg -i /tmp/setup/gitkraken.deb
-sudo apt update && sudo apt install gitkraken -y
+sudo apt update && sudo apt install -f -y
 
 ######################### JetBrains Toolbox #########################
 
