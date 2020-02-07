@@ -5,12 +5,11 @@
 # Mega
 # JDownloader
 
-######################### Apt packages #########################
+######################### Generic Apt packages #########################
 
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install -y \
-  dconf-editor \
+sudo apt update && sudo apt install -y \
   filezilla \
   firefox \
   git \
@@ -18,13 +17,7 @@ sudo apt install -y \
   k4dirstat \
   libreoffice \
   make \
-  maven \
-  openjdk-8-jdk \
   steam \
-  thunderbird \
-  thunderbird-gnome-support \
-  thunderbird-locale-de-ch \
-  thunderbird-locale-en-us \
   unzip \
   vlc \
   wget \
@@ -32,7 +25,7 @@ sudo apt install -y \
 
 ######################### Snap packages #########################
 
-sudo apt install -y \
+sudo apt update && sudo apt install -y \
   snapd \
   snapd-xdg-open
 
@@ -40,12 +33,11 @@ sudo snap install leagueoflegends --edge --devmode
 sudo snap refresh --candidate wine-platform-4-staging
 sudo snap refresh --candidate wine-platform-runtime
 
-######################### Stack #########################
+######################### Java #########################
 
-wget -O /tmp/setup/stack.sh https://get.haskellstack.org
-sudo sh /tmp/setup/stack.sh
-stack setup
-stack install hindent stylish-haskell
+sudo apt update && sudo apt install -y \
+  maven \
+  openjdk-11-jdk
 
 ######################### Node #########################
 
@@ -58,7 +50,7 @@ sudo npm install -g typescript
 
 ######################### python #########################
 
-sudo apt install -y \
+sudo apt update && sudo apt install -y \
   python3 \
   python3-pip
   
@@ -66,19 +58,21 @@ sudo pip install -U --user pylint
 
 ######################### Docker #########################
 
-sudo apt remove \
+sudo apt remove -y \
   docker \
   docker-engine \
   docker.io \
   containerd \
   runc
-sudo apt install -y \
+  
+sudo apt update && sudo apt install -y \
     apt-transport-https \
     ca-certificates \
     curl \
     gnupg-agent \
     software-properties-common
-curl -sSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    
+curl -SL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update && sudo apt install -y \
   docker-ce \
@@ -87,8 +81,28 @@ sudo apt update && sudo apt install -y \
 
 ######################### Docker Compose #########################
 
-sudo curl -sSL "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -SL "https://github.com/docker/compose/releases/download/v1.25.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+######################### Tweak GNOME Shell #########################
+
+sudo apt update && sudo apt install dconf-editor -y
+
+gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
+gsettings set org.gnome.desktop.interface show-battery-percentage true
+gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'none'
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
+gsettings set org.gnome.login-screen enable-fingerprint-authentication false
+gsettings set org.gnome.login-screen enable-smartcard-authentication false
+gsettings set org.gnome.nautilus.preferences show-hidden-files true
+gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'spotify.desktop', 'shift-application.desktop', 'gitkraken.desktop', 'code.desktop']"
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
+gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
+gsettings set org.gnome.shell.extensions.desktop-icons show-home false
+gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
 
 ######################### qBittorrent #########################
 
@@ -103,7 +117,7 @@ sudo apt update && sudo apt install gimp -y
 ######################### Spotify #########################
 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+curl -S https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 sudo apt update && sudo apt install spotify-client -y
 
 ######################### Etcher #########################
@@ -115,7 +129,7 @@ sudo apt update && sudo apt install balena-etcher-electron -y
 ######################### Chrome #########################
 
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+curl -S https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo apt update && sudo apt install google-chrome-stable -y
 
 ######################### Resilio Sync #########################
@@ -129,9 +143,16 @@ sudo systemctl enable resilio-sync && sudo systemctl start resilio-sync
 
 mkdir -p /tmp/setup
 
+######################### Stack #########################
+
+wget -O /tmp/setup/stack.sh https://get.haskellstack.org
+sudo sh /tmp/setup/stack.sh
+stack setup
+stack install hindent stylish-haskell
+
 ######################### Visual Studio Code #########################
 
-wget -O /tmp/setup/vscode.deb https://az764295.vo.msecnd.net/stable/9579eda04fdb3a9bba2750f15193e5fafe16b959/code_1.41.0-1576089540_amd64.deb
+wget -O /tmp/setup/vscode.deb https://az764295.vo.msecnd.net/stable/ae08d5460b5a45169385ff3fd44208f431992451/code_1.42.0-1580986622_amd64.deb
 sudo dpkg -i /tmp/setup/vscode.deb
 sudo apt update && sudo apt install -f -y
 
@@ -184,13 +205,7 @@ tar -C /tmp/setup -xzf /tmp/setup/jetbrains-toolbox.tar.gz
 sudo mv /tmp/setup/jetbrains-toolbox-1.16.6067 /usr/local/jetbrains-toolbox
 /usr/local/jetbrains-toolbox/jetbrains-toolbox
 
-######################### Foxit #########################
-
-wget -O /tmp/setup/foxitReader.tar.gz http://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.4.0911.x64.run.tar.gz
-tar -C /tmp/setup -xzf /tmp/setup/foxitReader.tar.gz
-/tmp/setup/FoxitReader.enu.setup.2.4.4.0911(r057d814).x64.run
-
-######################### caffeine #########################
+######################### Caffeine #########################
 
 # TODO
 
@@ -201,7 +216,7 @@ tar -C /tmp/setup -xzf /tmp/setup/foxitReader.tar.gz
 # sudo add-apt-repository ppa:caffeine-developers/caffeine-dev -y
 # sudo apt update && sudo apt install caffeine -y
 
-######################### postman #########################
+######################### Postman #########################
 
 wget -O /tmp/setup/postman.tar.gz https://dl.pstmn.io/download/latest/linux64
 tar -C /tmp/setup -xzf /tmp/setup/postman.tar.gz
@@ -222,26 +237,8 @@ unzip /tmp/setup/shift.zip -d /tmp/setup/shift
 sudo mv /tmp/setup/shift/shift-linux-v4.0.2 /usr/local/Shift
 /usr/local/Shift/Shift
 
-######################### Tweak GNOME Shell #########################
-
-gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
-gsettings set org.gnome.desktop.interface show-battery-percentage true
-gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'none'
-gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
-gsettings set org.gnome.login-screen enable-fingerprint-authentication false
-gsettings set org.gnome.login-screen enable-smartcard-authentication false
-gsettings set org.gnome.nautilus.preferences show-hidden-files true
-gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'spotify.desktop', 'shift-application.desktop', 'gitkraken.desktop', 'code.desktop']"
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
-gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
-gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
-gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
-gsettings set org.gnome.shell.extensions.desktop-icons show-home false
-gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
-
 ######################### Cleanup manual downloads #########################
 
 sudo rm -rf /tmp/setup
-sudo apt install -f
+sudo apt update && sudo apt install -f -y
 sudo apt autoremove -y
