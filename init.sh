@@ -81,7 +81,7 @@ sudo apt update && sudo apt install -y \
 
 ######################### Docker Compose #########################
 
-sudo curl -SL "https://github.com/docker/compose/releases/download/v1.25.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -SL "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 ######################### Tweak GNOME Shell #########################
