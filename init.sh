@@ -152,7 +152,7 @@ stack install hindent stylish-haskell
 
 ######################### Visual Studio Code #########################
 
-wget -O /tmp/setup/vscode.deb https://az764295.vo.msecnd.net/stable/ae08d5460b5a45169385ff3fd44208f431992451/code_1.42.0-1580986622_amd64.deb
+wget -O /tmp/setup/vscode.deb https://az764295.vo.msecnd.net/stable/c47d83b293181d9be64f27ff093689e8e7aed054/code_1.42.1-1581432938_amd64.deb
 sudo dpkg -i /tmp/setup/vscode.deb
 sudo apt update && sudo apt install -f -y
 
