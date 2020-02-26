@@ -46,7 +46,9 @@ sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
 
-sudo npm install -g typescript
+sudo npm install -g \
+  prettier \
+  typescript
 
 ######################### python #########################
 
