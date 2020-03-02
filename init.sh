@@ -35,6 +35,10 @@ sudo snap refresh --candidate wine-platform-runtime
 
 ######################### Java #########################
 
+sudo apt purge -y \
+  openjdk-8-jre \
+  openjdk-8-jre-headless
+
 sudo apt update && sudo apt install -y \
   maven \
   openjdk-11-jdk
