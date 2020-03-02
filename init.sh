@@ -58,7 +58,8 @@ sudo apt update && sudo apt install -y \
   
 sudo pip3 install -U --user \
   mypy \
-  pylint
+  pylint \
+  virtualenv
 
 ######################### Docker #########################
 
