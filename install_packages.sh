@@ -157,21 +157,23 @@ sudo dpkg -i /tmp/setup/nordvpn.deb
 sudo apt update && sudo apt install -f -y
 nordvpn set cybersec on
 
+sudo cp icons/nordvpn.svg /usr/share/icons/nordvpn.svg
+
 echo "[Desktop Entry]
 Name=NordVPN connect
-Exec=bash -c "nordvpn connect"
+Exec=bash -c 'nordvpn connect'
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=utilities-terminal" | sudo tee /usr/share/applications/NordVPNConnect.desktop
+Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nord-vpn-connect.desktop
 
 echo "[Desktop Entry]
 Name=NordVPN disconnect
-Exec=bash -c "nordvpn disconnect"
+Exec=bash -c 'nordvpn disconnect'
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=utilities-terminal" | sudo tee /usr/share/applications/NordVPNDisconnect.desktop
+Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nord-vpn-disconnect.desktop
 
 ######################### GitKraken #########################
 
