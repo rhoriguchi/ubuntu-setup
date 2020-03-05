@@ -2,7 +2,6 @@
 
 # Blitz
 # Snagit
-# Mega
 # JDownloader
 
 ######################### Generic Apt packages #########################
@@ -179,6 +178,12 @@ Icon=utilities-terminal" | sudo tee /usr/share/applications/NordVPNDisconnect.de
 
 wget -O /tmp/setup/gitkraken.deb https://release.axocdn.com/linux/gitkraken-amd64.deb
 sudo dpkg -i /tmp/setup/gitkraken.deb
+sudo apt update && sudo apt install -f -y
+
+######################### Mega #########################
+
+wget -O /tmp/setup/mega.deb https://mega.nz/linux/MEGAsync/Debian_10.0/amd64/megasync-Debian_10.0_amd64.deb
+sudo dpkg -i /tmp/setup/mega.deb
 sudo apt update && sudo apt install -f -y
 
 ######################### JetBrains Toolbox #########################
