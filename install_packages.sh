@@ -217,7 +217,7 @@ Icon=/usr/local/postman/app/resources/app/assets/icon.png" | sudo tee /usr/share
 wget -O /tmp/setup/shift.zip https://update.tryshift.com/download/version/4.0.2/linux_32
 unzip /tmp/setup/shift.zip -d /tmp/setup/shift
 sudo mv /tmp/setup/shift/shift-linux-v4.0.2 /usr/local/shift
-/usr/local/shift/shift
+/usr/local/shift/shift &
 
 ######################### belenaEtcher #########################
 
