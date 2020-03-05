@@ -17,6 +17,7 @@ sudo apt update && sudo apt install -y \
   k4dirstat \
   libreoffice \
   make \
+  neofetch \
   steam \
   unzip \
   vlc \
