@@ -156,7 +156,7 @@ sudo apt update && sudo apt install -f -y
 
 ######################### NordVpn #########################
 
-wget -O /tmp/setup/nordvpn.deb sudo dpkg -i /pathToFile/nordvpn-release_1.0.0_all.deb
+wget -O /tmp/setup/nordvpn.deb https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
 sudo dpkg -i /tmp/setup/nordvpn.deb
 sudo apt update && sudo apt install -f -y
 nordvpn set cybersec on
