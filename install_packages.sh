@@ -134,12 +134,6 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 curl -S https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 sudo apt update && sudo apt install spotify-client -y
 
-######################### Etcher #########################
-
-echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
-sudo apt update && sudo apt install balena-etcher-electron -y
-
 ######################### Chrome #########################
 
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
@@ -233,22 +227,41 @@ sudo mv /tmp/setup/jetbrains-toolbox-1.16.6067 /usr/local/jetbrains-toolbox
 
 wget -O /tmp/setup/postman.tar.gz https://dl.pstmn.io/download/latest/linux64
 tar -C /tmp/setup -xzf /tmp/setup/postman.tar.gz
-sudo mv /tmp/setup/Postman /usr/local/Postman
+sudo mv /tmp/setup/Postman /usr/local/postman
 
 echo "[Desktop Entry]
 Name=Postman
-Exec=/usr/local/Postman/Postman
+Exec=/usr/local/postman/Postman
 StartupNotify=true
 Terminal=false
 Type=Application
-Icon=/usr/local/Postman/app/resources/app/assets/icon.png" | sudo tee /usr/share/applications/Postman.desktop
+Icon=/usr/local/postman/app/resources/app/assets/icon.png" | sudo tee /usr/share/applications/postman.desktop
 
 ######################### Shift #########################
 
 wget -O /tmp/setup/shift.zip https://update.tryshift.com/download/version/4.0.2/linux_32
 unzip /tmp/setup/shift.zip -d /tmp/setup/shift
-sudo mv /tmp/setup/shift/shift-linux-v4.0.2 /usr/local/Shift
-/usr/local/Shift/Shift
+sudo mv /tmp/setup/shift/shift-linux-v4.0.2 /usr/local/shift
+/usr/local/shift/shift
+
+######################### belenaEtcher #########################
+
+wget -O /tmp/setup/etcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.79/balena-etcher-electron-1.5.79-linux-x64.zip
+unzip /tmp/setup/etcher.zip -d /tmp/setup/etcher
+
+sudo mkdir -p /usr/local/etcher
+sudo mv /tmp/setup/etcher/balenaEtcher-1.5.79-x64.AppImage /usr/local/etcher/etcher.AppImage
+sudo chmod +x /usr/local/etcher/etcher.AppImage
+
+sudo cp icons/etcher.ico /usr/local/etcher/etcher.ico
+
+echo "[Desktop Entry]
+Name=belenaEtcher
+Exec=/usr/local/etcher/etcher.AppImage
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=/usr/local/etcher/etcher.ico" | sudo tee /usr/share/applications/etcher.desktop
 
 ######################### Cleanup manual downloads #########################
 
