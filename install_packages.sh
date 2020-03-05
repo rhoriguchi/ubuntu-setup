@@ -188,17 +188,6 @@ tar -C /tmp/setup -xzf /tmp/setup/jetbrains-toolbox.tar.gz
 sudo mv /tmp/setup/jetbrains-toolbox-1.16.6067 /usr/local/jetbrains-toolbox
 /usr/local/jetbrains-toolbox/jetbrains-toolbox
 
-######################### Caffeine #########################
-
-# TODO
-
-# wget -O /tmp/setup/caffeine.tar.gz http://archive.ubuntu.com/ubuntu/pool/universe/c/caffeine/caffeine_2.9.4.orig.tar.gz
-# tar -C /tmp/setup -xzf /tmp/setup/caffeine.tar.gz
-
-# can't find package
-# sudo add-apt-repository ppa:caffeine-developers/caffeine-dev -y
-# sudo apt update && sudo apt install caffeine -y
-
 ######################### Postman #########################
 
 wget -O /tmp/setup/postman.tar.gz https://dl.pstmn.io/download/latest/linux64
