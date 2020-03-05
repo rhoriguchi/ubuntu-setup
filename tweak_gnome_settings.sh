@@ -1,5 +1,7 @@
 
-#!/bin/sh -x
+#!/bin/bash
+
+set -x
 
 sudo apt update && sudo apt install dconf-editor -y
 

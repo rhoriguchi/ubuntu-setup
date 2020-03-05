@@ -1,4 +1,6 @@
-#!/bin/sh -x
+#!/bin/bash
+
+set -x
 
 # Blitz
 # Snagit
