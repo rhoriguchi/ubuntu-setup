@@ -48,6 +48,7 @@ sudo apt update && sudo apt install npm -y
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
+sudo npm install -g npm
 
 sudo npm install -g \
   prettier \
