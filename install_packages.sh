@@ -108,21 +108,14 @@ sudo apt update && sudo apt install gimp -y
 ######################### Spotify #########################
 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-curl -S https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+curl -SL https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 sudo apt update && sudo apt install spotify-client -y
 
 ######################### Chrome #########################
 
 echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-curl -S https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+curl -SL https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo apt update && sudo apt install google-chrome-stable -y
-
-######################### Resilio Sync #########################
-
-echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list
-curl -LO http://linux-packages.resilio.com/resilio-sync/key.asc && sudo apt-key add -
-sudo apt update && sudo apt install resilio-sync -y
-sudo systemctl enable resilio-sync && sudo systemctl start resilio-sync
 
 ######################### Manual downloads #########################
 
@@ -140,6 +133,14 @@ stack install hindent stylish-haskell
 wget -O /tmp/setup/vscode.deb https://az764295.vo.msecnd.net/stable/c47d83b293181d9be64f27ff093689e8e7aed054/code_1.42.1-1581432938_amd64.deb
 sudo dpkg -i /tmp/setup/vscode.deb
 sudo apt update && sudo apt install -f -y
+
+######################### Resilio Sync #########################
+
+echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list
+curl -SL http://linux-packages.resilio.com/resilio-sync/key.asc -o /tmp/setup/key.asc
+sudo apt-key add /tmp/setup/key.asc
+sudo apt update && sudo apt install resilio-sync -y
+sudo systemctl enable resilio-sync && sudo systemctl start resilio-sync
 
 ######################### Discord #########################
 
