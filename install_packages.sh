@@ -112,14 +112,14 @@ sudo apt update && sudo apt install spotify-client -y
 
 ######################### Chrome #########################
 
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 curl -S https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo apt update && sudo apt install google-chrome-stable -y
 
 ######################### Resilio Sync #########################
 
 echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list
-curl -LO http://linux-packages.resilio.com/resilio-sync/key.asc && sudo apt-key add ./key.asc
+curl -LO http://linux-packages.resilio.com/resilio-sync/key.asc && sudo apt-key add
 sudo apt update && sudo apt install resilio-sync -y
 sudo systemctl enable resilio-sync && sudo systemctl start resilio-sync
 
@@ -161,7 +161,7 @@ nordvpn set cybersec on
 
 echo "[Desktop Entry]
 Name=NordVPN connect
-Exec=bash -c 'nordvpn connect'
+Exec=bash -c "nordvpn connect"
 StartupNotify=true
 Terminal=true
 Type=Application
@@ -169,7 +169,7 @@ Icon=utilities-terminal" | sudo tee /usr/share/applications/NordVPNConnect.deskt
 
 echo "[Desktop Entry]
 Name=NordVPN disconnect
-Exec=bash -c 'nordvpn disconnect'
+Exec=bash -c "nordvpn disconnect"
 StartupNotify=true
 Terminal=true
 Type=Application
