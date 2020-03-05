@@ -120,7 +120,7 @@ sudo apt update && sudo apt install google-chrome-stable -y
 ######################### Resilio Sync #########################
 
 echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list
-curl -LO http://linux-packages.resilio.com/resilio-sync/key.asc && sudo apt-key add
+curl -LO http://linux-packages.resilio.com/resilio-sync/key.asc && sudo apt-key add -
 sudo apt update && sudo apt install resilio-sync -y
 sudo systemctl enable resilio-sync && sudo systemctl start resilio-sync
 
