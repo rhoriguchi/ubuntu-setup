@@ -2,7 +2,6 @@
 
 # Blitz
 # Snagit
-# JDownloader
 
 ######################### Generic Apt packages #########################
 
