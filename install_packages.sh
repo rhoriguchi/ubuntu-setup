@@ -232,7 +232,7 @@ Terminal=false
 Type=Application
 Icon=/usr/local/etcher/etcher.ico" | sudo tee /usr/share/applications/etcher.desktop
 
-######################### Cleanup manual downloads #########################
+######################### Clean up manual downloads #########################
 
 sudo rm -rf /tmp/setup
 sudo apt update && sudo apt install -f -y
