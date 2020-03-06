@@ -3,10 +3,10 @@
 ## Run init script
 
 ```bash
-git clone https://github.com/rhoriguchi/ubuntu_setup.git ~/ubuntu_setup
+git clone https://github.com/rhoriguchi/ubuntu_setup.git /tmp/ubuntu_setup
 
-sudo chmod +x ~/ubuntu_setup/init.sh
-~/ubuntu_setup/init.sh
+sudo chmod +x /tmp/ubuntu_setup/init.sh
+/tmp/ubuntu_setup/init.sh
 ```
 
 ## After
