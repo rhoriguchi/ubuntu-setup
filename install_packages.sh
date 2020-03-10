@@ -56,13 +56,13 @@ sudo npm install -g \
   prettier \
   typescript
 
-######################### python #########################
+######################### Python #########################
 
 sudo apt update && sudo apt install -y \
   python3 \
   python3-pip
   
-sudo pip3 install -U --user \
+sudo pip3 install --upgrade --user \
   mypy \
   pylint \
   virtualenv
@@ -154,7 +154,7 @@ wget -O /tmp/setup/teamviewer.deb https://download.teamviewer.com/download/linux
 sudo dpkg -i /tmp/setup/teamviewer.deb
 sudo apt update && sudo apt install -f -y
 
-######################### NordVpn #########################
+######################### NordVPN #########################
 
 wget -O /tmp/setup/nordvpn.deb https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
 sudo dpkg -i /tmp/setup/nordvpn.deb
