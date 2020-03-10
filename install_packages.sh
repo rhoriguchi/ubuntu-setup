@@ -224,6 +224,7 @@ sudo mv /tmp/setup/shift/shift-linux-v4.0.2 /usr/local/shift
 wget -O /tmp/setup/etcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.79/balena-etcher-electron-1.5.79-linux-x64.zip
 unzip /tmp/setup/etcher.zip -d /tmp/setup/etcher
 sudo mv /tmp/setup/etcher/balenaEtcher-1.5.79-x64.AppImage /usr/local/etcher.AppImage
+sudo chmod +x /usr/local/etcher.AppImage
 
 sudo cp icons/etcher.ico /usr/share/icons/etcher.ico
 
