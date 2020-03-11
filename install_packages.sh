@@ -195,6 +195,7 @@ sudo apt update && sudo apt install -f -y
 
 wget -O /tmp/setup/jetbrains-toolbox.tar.gz https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.16.6067.tar.gz
 tar -C /tmp/setup -xzf /tmp/setup/jetbrains-toolbox.tar.gz
+sudo rm -rf /usr/local/jetbrains-toolbox
 sudo mv /tmp/setup/jetbrains-toolbox-1.16.6067 /usr/local/jetbrains-toolbox
 /usr/local/jetbrains-toolbox/jetbrains-toolbox
 
@@ -202,6 +203,7 @@ sudo mv /tmp/setup/jetbrains-toolbox-1.16.6067 /usr/local/jetbrains-toolbox
 
 wget -O /tmp/setup/postman.tar.gz https://dl.pstmn.io/download/latest/linux64
 tar -C /tmp/setup -xzf /tmp/setup/postman.tar.gz
+sudo rm -rf /usr/local/postman
 sudo mv /tmp/setup/Postman /usr/local/postman
 
 echo "[Desktop Entry]
@@ -216,8 +218,9 @@ Icon=/usr/local/postman/app/resources/app/assets/icon.png" | sudo tee /usr/share
 
 wget -O /tmp/setup/shift.zip https://update.tryshift.com/download/version/4.0.2/linux_32
 unzip /tmp/setup/shift.zip -d /tmp/setup/shift
-sudo mv /tmp/setup/shift/shift-linux-v4.0.2 /usr/local/shift
-/usr/local/shift/shift &
+sudo rm -rf /usr/local/shift
+sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
+/usr/local/shift/Shift &
 
 ######################### belenaEtcher #########################
 
