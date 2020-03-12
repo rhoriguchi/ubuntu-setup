@@ -127,7 +127,7 @@ sudo apt update && sudo apt install -y \
   python-scipy \
   qgis
 
-qgis --nologo --code "$(pwd)/scripts/qgis.py"
+qgis --nologo --code "$(pwd)/scripts/pycharmqgis.py"
 sudo mv pycharmqgis.sh /usr/local/pycharmqgis.sh
 
 sudo cp icons/pycharmqgis.svg /usr/share/icons/pycharmqgis.svg
