@@ -117,31 +117,6 @@ echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sud
 curl -SL https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo apt update && sudo apt install google-chrome-stable -y
 
-######################### QGIS #########################
-
-echo "deb http://qgis.org/debian $(lsb_release -cs) main
-deb-src http://qgis.org/debian $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/qgis.list
-curl -SL https://qgis.org/downloads/qgis-2019.gpg.key | sudo apt-key add -
-sudo apt update && sudo apt install -y \
-  python-matplotlib \
-  python-scipy \
-  qgis
-
-sudo mkdir /usr/local/qgis
-
-echo "export PYTHONPATH=$PYTHONPATH:/usr/share/qgis/python:~/.local/share/QGIS/QGIS3/profiles/default/python:~/.local/share/QGIS/QGIS3/profiles/default/python/plugins:/usr/share/qgis/python/plugins:/usr/lib/python37.zip:/usr/lib/python3.7:/usr/lib/python3.7/lib-dynload:~/.local/lib/python3.7/site-packages:/usr/local/lib/python3.7/dist-packages:/usr/lib/python3/dist-packages:~/.local/share/QGIS/QGIS3/profiles/default/python
-sh ~/bin/pycharm" | sudo tee /usr/local/qgis/pycharmqgis.sh
-
-sudo cp icons/pycharmqgis.svg /usr/share/icons/pycharmqgis.svg
-
-echo "[Desktop Entry]
-Name=PyCharm Professional with QGIS
-Exec=sh /usr/local/qgis/pycharmqgis.sh
-StartupNotify=true
-Terminal=false
-Type=Application
-Icon=/usr/share/icons/pycharmqgis.svg" | sudo tee /usr/share/applications/pyCharmQgis.desktop
-
 ######################### Manual downloads #########################
 
 mkdir -p /tmp/setup
@@ -158,6 +133,29 @@ stack install hindent stylish-haskell
 wget -O /tmp/setup/vscode.deb https://az764295.vo.msecnd.net/stable/c47d83b293181d9be64f27ff093689e8e7aed054/code_1.42.1-1581432938_amd64.deb
 sudo dpkg -i /tmp/setup/vscode.deb
 sudo apt update && sudo apt install -f -y
+
+######################### QGIS #########################
+
+echo "deb http://qgis.org/debian $(lsb_release -cs) main
+deb-src http://qgis.org/debian $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/qgis.list
+curl -SL https://qgis.org/downloads/qgis-2019.gpg.key | sudo apt-key add -
+sudo apt update && sudo apt install -y \
+  python-matplotlib \
+  python-scipy \
+  qgis
+
+qgis --nologo --code "$(pwd)/scripts/qgis.py"
+sudo mv /tmp/setup/pycharmqgis.sh /usr/local/pycharmqgis.sh
+
+sudo cp icons/pycharmqgis.svg /usr/share/icons/pycharmqgis.svg
+
+echo "[Desktop Entry]
+Name=PyCharm Professional with QGIS
+Exec=sh /usr/local/pycharmqgis.sh
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=/usr/share/icons/pycharmqgis.svg" | sudo tee /usr/share/applications/pyCharmQgis.desktop
 
 ######################### Resilio Sync #########################
 
