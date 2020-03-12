@@ -84,7 +84,7 @@ sudo apt update && sudo apt install -y \
     software-properties-common
     
 curl -SL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update && sudo apt install -y \
   docker-ce \
   docker-ce-cli \
@@ -113,7 +113,7 @@ sudo apt update && sudo apt install spotify-client -y
 
 ######################### Chrome #########################
 
-echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+echo "deb [arch=$(dpkg --print-architecture)] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 curl -SL https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo apt update && sudo apt install google-chrome-stable -y
 
@@ -153,7 +153,7 @@ stack install hindent stylish-haskell
 
 ######################### Visual Studio Code #########################
 
-wget -O /tmp/setup/vscode.deb https://az764295.vo.msecnd.net/stable/c47d83b293181d9be64f27ff093689e8e7aed054/code_1.42.1-1581432938_amd64.deb
+wget -O /tmp/setup/vscode.deb "https://az764295.vo.msecnd.net/stable/c47d83b293181d9be64f27ff093689e8e7aed054/code_1.42.1-1581432938_$(dpkg --print-architecture).deb"
 sudo dpkg -i /tmp/setup/vscode.deb
 sudo apt update && sudo apt install -f -y
 
@@ -173,7 +173,7 @@ sudo apt update && sudo apt install -f -y
 
 ######################### TeamViewer #########################
 
-wget -O /tmp/setup/teamviewer.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+wget -O /tmp/setup/teamviewer.deb "https://download.teamviewer.com/download/linux/teamviewer_$(dpkg --print-architecture).deb"
 sudo dpkg -i /tmp/setup/teamviewer.deb
 sudo apt update && sudo apt install -f -y
 
@@ -204,13 +204,13 @@ Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nord-vpn-d
 
 ######################### GitKraken #########################
 
-wget -O /tmp/setup/gitkraken.deb https://release.axocdn.com/linux/gitkraken-amd64.deb
+wget -O /tmp/setup/gitkraken.deb https://release.axocdn.com/linux/gitkraken-$(dpkg --print-architecture).deb
 sudo dpkg -i /tmp/setup/gitkraken.deb
 sudo apt update && sudo apt install -f -y
 
 ######################### Mega #########################
 
-wget -O /tmp/setup/mega.deb https://mega.nz/linux/MEGAsync/Debian_10.0/amd64/megasync-Debian_10.0_amd64.deb
+wget -O /tmp/setup/mega.deb "https://mega.nz/linux/MEGAsync/Debian_10.0/$(dpkg --print-architecture)/megasync-Debian_10.0_$(dpkg --print-architecture).deb"
 sudo dpkg -i /tmp/setup/mega.deb
 sudo apt update && sudo apt install -f -y
 
