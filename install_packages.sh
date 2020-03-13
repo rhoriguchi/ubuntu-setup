@@ -90,6 +90,10 @@ sudo apt update && sudo apt install -y \
   docker-ce-cli \
   containerd.io
 
+######################### Android development #########################
+
+sudo apt update && sudo apt install adb -y
+
 ######################### Docker Compose #########################
 
 sudo curl -SL "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
