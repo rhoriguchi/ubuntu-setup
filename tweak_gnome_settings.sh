@@ -43,6 +43,7 @@ sudo make install /tmp/arc-theme
 
 gsettings set org.gnome.desktop.interface cursor-theme 'Arc-Darker'
 gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
+gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
 
 ######################### Icon Theme #########################
 
