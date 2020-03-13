@@ -175,6 +175,12 @@ wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.9/discor
 sudo dpkg -i /tmp/setup/discord.deb
 sudo apt update && sudo apt install -f -y
 
+######################### Gotop #########################
+
+git clone --depth 1 https://github.com/cjbassi/gotop /tmp/setup/gotop
+cd /usr/local/bin && sudo bash /tmp/setup/gotop/scripts/download.sh ; cd $OLDPWD
+sudo chmod +x /usr/local/bin/gotop
+
 ######################### TeamViewer #########################
 
 wget -O /tmp/setup/teamviewer.deb "https://download.teamviewer.com/download/linux/teamviewer_$(dpkg --print-architecture).deb"
