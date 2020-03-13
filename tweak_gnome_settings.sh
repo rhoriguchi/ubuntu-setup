@@ -37,7 +37,7 @@ sudo apt update && sudo apt install -y \
   libgtk-3-dev \
   pkg-config
 
-git clone https://github.com/horst3180/arc-theme --depth 1 /tmp/arc-theme
+git clone --depth 1 https://github.com/horst3180/arc-theme /tmp/arc-theme
 sh /tmp/arc-theme/autogen.sh --prefix=/usr --with-gnome=3.22
 sudo make install /tmp/arc-theme
 
