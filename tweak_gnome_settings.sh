@@ -3,6 +3,8 @@
 
 set -x
 
+######################### Settings #########################
+
 sudo apt update && sudo apt install dconf-editor -y
 
 gsettings set org.gnome.desktop.interface clock-show-date true
@@ -24,3 +26,27 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.desktop-icons show-home false
 gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
+
+######################### Theme #########################
+
+sudo apt update && sudo apt install -y \
+  autoconf \
+  automake \
+  git \
+  gtk2-engines-murrine \
+  libgtk-3-dev \
+  pkg-config
+
+git clone https://github.com/horst3180/arc-theme --depth 1 /tmp/arc-theme
+sh /tmp/arc-theme/autogen.sh --prefix=/usr --with-gnome=3.22
+sudo make install /tmp/arc-theme
+
+gsettings set org.gnome.desktop.interface cursor-theme 'Arc-Darker'
+gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
+
+######################### Icon Theme #########################
+
+sudo add-apt-repository ppa:papirus/papirus -y
+sudo apt update && sudo apt install papirus-icon-theme -y
+
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
