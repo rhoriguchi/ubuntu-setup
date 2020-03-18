@@ -8,6 +8,7 @@ set -x
 sudo apt update && sudo apt install dconf-editor -y
 
 gsettings set org.gnome.desktop.interface clock-show-date true
+gsettings set org.gnome.desktop.interface clock-show-seconds true
 gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar "none"
