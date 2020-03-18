@@ -171,7 +171,7 @@ sudo systemctl enable resilio-sync && sudo systemctl start resilio-sync
 
 ######################### Discord #########################
 
-wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb
+wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.10/discord-0.0.10.deb
 sudo dpkg -i /tmp/setup/discord.deb
 sudo apt update && sudo apt install -f -y
 
