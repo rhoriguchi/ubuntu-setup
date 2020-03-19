@@ -67,7 +67,7 @@ sudo pip3 install --upgrade --user \
   pylint \
   virtualenv
 
-######################### Docker #########################
+######################### Docker and Docker Compose #########################
 
 sudo apt remove -y \
   docker \
@@ -88,16 +88,12 @@ sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://downloa
 sudo apt update && sudo apt install -y \
   docker-ce \
   docker-ce-cli \
+  docker-compose \
   containerd.io
 
 ######################### Android development #########################
 
 sudo apt update && sudo apt install -y adb 
-
-######################### Docker Compose #########################
-
-sudo curl -SL "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
 
 ######################### qBittorrent #########################
 
