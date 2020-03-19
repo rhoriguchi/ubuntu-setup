@@ -46,7 +46,7 @@ sudo apt update && sudo apt install -y \
 
 ######################### Node #########################
 
-sudo apt update && sudo apt install npm -y
+sudo apt update && sudo apt install -y npm
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
@@ -92,7 +92,7 @@ sudo apt update && sudo apt install -y \
 
 ######################### Android development #########################
 
-sudo apt update && sudo apt install adb -y
+sudo apt update && sudo apt install -y adb 
 
 ######################### Docker Compose #########################
 
@@ -102,24 +102,24 @@ sudo chmod +x /usr/local/bin/docker-compose
 ######################### qBittorrent #########################
 
 sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
-sudo apt update && sudo apt install qbittorrent -y
+sudo apt update && sudo apt install -y qbittorrent
 
 ######################### GIMP #########################
 
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y
-sudo apt update && sudo apt install gimp -y
+sudo apt update && sudo apt install -y gimp
 
 ######################### Spotify #########################
 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 curl -SL https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
-sudo apt update && sudo apt install spotify-client -y
+sudo apt update && sudo apt install -y spotify-client
 
 ######################### Chrome #########################
 
 echo "deb [arch=$(dpkg --print-architecture)] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 curl -SL https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo apt update && sudo apt install google-chrome-stable -y
+sudo apt update && sudo apt install -y google-chrome-stable
 
 ######################### QGIS #########################
 
@@ -159,21 +159,21 @@ stack install hindent stylish-haskell
 
 wget -O /tmp/setup/vscode.deb "https://az764295.vo.msecnd.net/stable/c47d83b293181d9be64f27ff093689e8e7aed054/code_1.42.1-1581432938_$(dpkg --print-architecture).deb"
 sudo dpkg -i /tmp/setup/vscode.deb
-sudo apt update && sudo apt install -f -y
+sudo apt update && sudo apt install -y -f
 
 ######################### Resilio Sync #########################
 
 echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list
 curl -SL http://linux-packages.resilio.com/resilio-sync/key.asc -o /tmp/setup/key.asc
 sudo apt-key add /tmp/setup/key.asc
-sudo apt update && sudo apt install resilio-sync -y
+sudo apt update && sudo apt install -y resilio-sync
 sudo systemctl enable resilio-sync && sudo systemctl start resilio-sync
 
 ######################### Discord #########################
 
 wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.10/discord-0.0.10.deb
 sudo dpkg -i /tmp/setup/discord.deb
-sudo apt update && sudo apt install -f -y
+sudo apt update && sudo apt install -y -f
 
 ######################### Gotop #########################
 
@@ -185,13 +185,13 @@ sudo chmod +x /usr/local/bin/gotop
 
 wget -O /tmp/setup/teamviewer.deb "https://download.teamviewer.com/download/linux/teamviewer_$(dpkg --print-architecture).deb"
 sudo dpkg -i /tmp/setup/teamviewer.deb
-sudo apt update && sudo apt install -f -y
+sudo apt update && sudo apt install -y -f
 
 ######################### NordVPN #########################
 
 wget -O /tmp/setup/nordvpn.deb https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
 sudo dpkg -i /tmp/setup/nordvpn.deb
-sudo apt update && sudo apt install -f -y
+sudo apt update && sudo apt install -y -f
 nordvpn set cybersec on
 
 sudo cp icons/nordvpn.svg /usr/share/icons/nordvpn.svg
@@ -216,13 +216,13 @@ Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nord-vpn-d
 
 wget -O /tmp/setup/gitkraken.deb https://release.axocdn.com/linux/gitkraken-$(dpkg --print-architecture).deb
 sudo dpkg -i /tmp/setup/gitkraken.deb
-sudo apt update && sudo apt install -f -y
+sudo apt update && sudo apt install -y -f
 
 ######################### Mega #########################
 
 wget -O /tmp/setup/mega.deb "https://mega.nz/linux/MEGAsync/Debian_10.0/$(dpkg --print-architecture)/megasync-Debian_10.0_$(dpkg --print-architecture).deb"
 sudo dpkg -i /tmp/setup/mega.deb
-sudo apt update && sudo apt install -f -y
+sudo apt update && sudo apt install -y -f
 
 ######################### JetBrains Toolbox #########################
 
@@ -275,5 +275,5 @@ Icon=/usr/share/icons/etcher.ico" | sudo tee /usr/share/applications/etcher.desk
 ######################### Clean up manual downloads #########################
 
 sudo rm -rf /tmp/setup
-sudo apt update && sudo apt install -f -y
+sudo apt update && sudo apt install -y -f
 sudo apt autoremove -y
