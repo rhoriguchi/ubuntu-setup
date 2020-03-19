@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -x
+set -ex
 
-# Blitz
 # Snagit
 
 ######################### Generic Apt packages #########################
@@ -60,12 +59,20 @@ sudo npm install -g \
 
 sudo apt update && sudo apt install -y \
   python3 \
-  python3-pip
-  
-sudo pip3 install --upgrade --user \
+  python3-pip \
   mypy \
   pylint \
   virtualenv
+
+######################### Stack #########################
+
+# TODO fix
+# sudo apt update && sudo apt install -y haskell-stack
+
+# stack upgrade --force-download
+# stack install \
+#   hindent \
+#   stylish-haskell
 
 ######################### Docker and Docker Compose #########################
 
@@ -75,14 +82,14 @@ sudo apt remove -y \
   docker.io \
   containerd \
   runc
-  
+
 sudo apt update && sudo apt install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-    
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  gnupg-agent \
+  software-properties-common
+
 curl -SL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update && sudo apt install -y \
@@ -93,7 +100,7 @@ sudo apt update && sudo apt install -y \
 
 ######################### Android development #########################
 
-sudo apt update && sudo apt install -y adb 
+sudo apt update && sudo apt install -y adb
 
 ######################### qBittorrent #########################
 
@@ -140,54 +147,33 @@ Terminal=false
 Type=Application
 Icon=/usr/share/icons/pycharmqgis.svg" | sudo tee /usr/share/applications/pyCharmQgis.desktop
 
-######################### Manual downloads #########################
-
-mkdir -p /tmp/setup
-
-######################### Stack #########################
-
-wget -O /tmp/setup/stack.sh https://get.haskellstack.org
-sudo sh /tmp/setup/stack.sh
-stack setup
-stack install hindent stylish-haskell
-
-######################### Visual Studio Code #########################
-
-wget -O /tmp/setup/vscode.deb "https://az764295.vo.msecnd.net/stable/fe22a9645b44368865c0ba92e2fb881ff1afce94/code_1.43.1-1584515895_$(dpkg --print-architecture).deb"
-sudo dpkg -i /tmp/setup/vscode.deb
-sudo apt update && sudo apt install -y -f
-
 ######################### Resilio Sync #########################
 
 echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list
-curl -SL http://linux-packages.resilio.com/resilio-sync/key.asc -o /tmp/setup/key.asc
-sudo apt-key add /tmp/setup/key.asc
+curl -SL http://linux-packages.resilio.com/resilio-sync/key.asc | sudo apt-key add -
 sudo apt update && sudo apt install -y resilio-sync
-sudo systemctl enable resilio-sync && sudo systemctl start resilio-sync
+sudo systemctl enable --now resilio-sync
 
-######################### Discord #########################
+######################### Visual Studio Code #########################
 
-wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.10/discord-0.0.10.deb
-sudo dpkg -i /tmp/setup/discord.deb
-sudo apt update && sudo apt install -y -f
-
-######################### Gotop #########################
-
-git clone --depth 1 https://github.com/cjbassi/gotop /tmp/setup/gotop
-cd /usr/local/bin && sudo bash /tmp/setup/gotop/scripts/download.sh ; cd $OLDPWD
-sudo chmod +x /usr/local/bin/gotop
+echo "deb [arch=$(dpkg --print-architecture)] http://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+curl -SL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo apt update && sudo apt install -y \
+  apt-transport-https \
+  code
 
 ######################### TeamViewer #########################
 
-wget -O /tmp/setup/teamviewer.deb "https://download.teamviewer.com/download/linux/teamviewer_$(dpkg --print-architecture).deb"
-sudo dpkg -i /tmp/setup/teamviewer.deb
-sudo apt update && sudo apt install -y -f
+echo "deb http://linux.teamviewer.com/deb stable main" | sudo tee /etc/apt/sources.list.d/teamviewer.list
+curl -SL https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc | sudo apt-key add -
+sudo apt update && sudo apt install -y teamviewer
 
 ######################### NordVPN #########################
 
-wget -O /tmp/setup/nordvpn.deb https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
-sudo dpkg -i /tmp/setup/nordvpn.deb
-sudo apt update && sudo apt install -y -f
+echo "deb https://repo.nordvpn.com/deb/nordvpn/debian stable main" | sudo tee /etc/apt/sources.list.d/nordvpn.list
+curl -SL https://repo.nordvpn.com/gpg/nordvpn_public.asc | sudo apt-key add -
+sudo apt update && sudo apt install -y nordvpn
+
 nordvpn set cybersec on
 
 sudo cp icons/nordvpn.svg /usr/share/icons/nordvpn.svg
@@ -208,16 +194,52 @@ Terminal=true
 Type=Application
 Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nord-vpn-disconnect.desktop
 
+######################### Mega #########################
+
+echo "deb https://mega.nz/linux/MEGAsync/xUbuntu_$(lsb_release -rs)/ ./" | sudo tee /etc/apt/sources.list.d/megasync.list
+echo "-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2
+
+mI0EVj3AgQEEAO2XyJgpvE5HDRVsggcrMhf5+KpQepl7m7OyrPSgxLi72Wuy5GWp
+hO64BX1UzmdUirIEOc13YxdeuhwJ3YP0wnKUyUrdWA0r2HjOz555vN6ldrPlSCBI
+RxKBWRMQaR4cwNKQ8V4xV9tVdPGgrQ9L/4H3fM9fYqCwEMKBxxLZsF3PABEBAAG0
+IE1lZ2FMaW1pdGVkIDxzdXBwb3J0QG1lZ2EuY28ubno+iL8EEwECACkFAlY9wIEC
+GwMFCRLMAwAHCwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRADw606fwaOXfOS
+A/998rh6f0wsrHmX2LTw2qmrWzwPj4m+vp0m3w5swPZw1x4qSNsmNsIXX8J0ZcSE
+qymOwHZ0B9imBS3iz+U496NSfPNWABbIBnUAu8zq0IR28Q9pUcLe5MWFsw9NO+w2
+5dByoN9JKeUftZt1x76NHn5wmxB9fv7WVlCnZJ+T16+nh7iNBFY9wIEBBADHpopM
+oXNkrGZLI6Ok1F5N7+bSgiyZwkvBMAqCkPawUgwJztFKGf8F/sSbydsKRC2aQcuJ
+eOj0ZPUtJ80+o3w8MsHRtZDSxDIxqqiHeupoDRI3Be9S544vI5/UmiiygTuhmNTT
+NWgStoZz7hEK4IsELAG1EFodIMtBSkptDL92HwARAQABiKUEGAECAA8FAlY9wIEC
+GwwFCRLMAwAACgkQA8OtOn8Gjl3HlAQAoOckF5JBJWekmlX+k2RYwtgfszk31Gq+
+Jjiho4rUEW8c1EUPvK8v1jRGwjYED3ihJ6510eblYFPl+6k91OWlScnxuVVAmSn4
+35RW3vR+nYUvf3s8rctbw97gJJZAA7p5oAowTux3oHotKSYhhxKcz15goMXzSb5G
+/h7fJRhMnw4=
+=fp/e
+-----END PGP PUBLIC KEY BLOCK-----" | sudo apt-key add -
+sudo apt update && sudo apt install -y megasync
+
+######################### Manual downloads #########################
+
+mkdir -p /tmp/setup
+
+######################### Discord #########################
+
+wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.10/discord-0.0.10.deb
+sudo dpkg -i /tmp/setup/discord.deb
+sudo apt update && sudo apt install -y -f
+
+######################### Gotop #########################
+
+sudo rm -rf /tmp/setup/gotop
+git clone --depth 1 https://github.com/cjbassi/gotop /tmp/setup/gotop
+pushd /usr/local/bin && sudo bash /tmp/setup/gotop/scripts/download.sh && popd
+sudo chmod +x /usr/local/bin/gotop
+
 ######################### GitKraken #########################
 
 wget -O /tmp/setup/gitkraken.deb https://release.axocdn.com/linux/gitkraken-$(dpkg --print-architecture).deb
 sudo dpkg -i /tmp/setup/gitkraken.deb
-sudo apt update && sudo apt install -y -f
-
-######################### Mega #########################
-
-wget -O /tmp/setup/mega.deb "https://mega.nz/linux/MEGAsync/Debian_10.0/$(dpkg --print-architecture)/megasync-Debian_10.0_$(dpkg --print-architecture).deb"
-sudo dpkg -i /tmp/setup/mega.deb
 sudo apt update && sudo apt install -y -f
 
 ######################### JetBrains Toolbox #########################
@@ -246,7 +268,7 @@ Icon=/usr/local/postman/app/resources/app/assets/icon.png" | sudo tee /usr/share
 ######################### Shift #########################
 
 wget -O /tmp/setup/shift.zip https://update.tryshift.com/download/version/4.0.2/linux_32
-unzip /tmp/setup/shift.zip -d /tmp/setup/shift
+unzip -q /tmp/setup/shift.zip -d /tmp/setup/shift
 sudo rm -rf /usr/local/shift
 sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
 /usr/local/shift/Shift &

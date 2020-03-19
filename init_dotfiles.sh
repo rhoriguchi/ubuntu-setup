@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -x
+set -ex
 
 sudo apt update && sudo apt install -y \
   git \
@@ -8,4 +8,4 @@ sudo apt update && sudo apt install -y \
 
 git clone https://github.com/rhoriguchi/dotfiles.git ~/.dotfiles
 
-cd ~/.dotfiles && sh init.sh ; cd $OLDPWD
+pushd ~/.dotfiles && sh init.sh && popd

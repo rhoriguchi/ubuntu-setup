@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 sh install_packages.sh
 sh init_dotfiles.sh
