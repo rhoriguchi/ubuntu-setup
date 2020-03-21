@@ -41,7 +41,7 @@ sudo apt purge -y \
 
 sudo apt update && sudo apt install -y \
   maven \
-  openjdk-11-jdk
+  openjdk-14-jdk
 
 ######################### Node #########################
 
