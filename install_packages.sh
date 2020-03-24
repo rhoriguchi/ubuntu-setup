@@ -52,6 +52,7 @@ sudo n stable
 sudo npm install -g npm
 
 sudo npm install -g \
+  eslint \
   prettier \
   typescript
 
