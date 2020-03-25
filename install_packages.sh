@@ -59,6 +59,7 @@ sudo npm install -g \
 ######################### Python #########################
 
 sudo apt update && sudo apt install -y \
+  flake8 \
   python3 \
   python3-pip \
   mypy \
