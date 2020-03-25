@@ -235,12 +235,21 @@ wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.10/disco
 sudo dpkg -i /tmp/setup/discord.deb
 sudo apt update && sudo apt install -y -f
 
-######################### Gotop #########################
+######################### ytop #########################
 
-sudo rm -rf /tmp/setup/gotop
-git clone --depth 1 https://github.com/cjbassi/gotop /tmp/setup/gotop
-pushd /usr/local/bin && sudo bash /tmp/setup/gotop/scripts/download.sh && popd
-sudo chmod +x /usr/local/bin/gotop
+wget -O /tmp/setup/ytop.tar.gz https://github.com/cjbassi/ytop/releases/download/0.5.1/ytop-0.5.1-x86_64-unknown-linux-gnu.tar.gz
+tar -C /tmp/setup -xzf /tmp/setup/ytop.tar.gz
+sudo rm -rf /usr/local/bin/ytop
+sudo mv /tmp/setup/ytop /usr/local/bin/ytop
+sudo chmod +x /usr/local/bin/ytop
+
+echo "[Desktop Entry]
+Name=ytop
+Exec=bash -c 'ytop --per-cpu'
+StartupNotify=true
+Terminal=true
+Type=Application
+Icon=org.gnome.SystemMonitor" | sudo tee /usr/share/applications/ytop.desktop
 
 ######################### GitKraken #########################
 
