@@ -190,7 +190,7 @@ Exec=bash -c 'nordvpn connect'
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nord-vpn-connect.desktop
+Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nordvpnConnect.desktop
 
 echo "[Desktop Entry]
 Name=NordVPN disconnect
@@ -198,7 +198,7 @@ Exec=bash -c 'nordvpn disconnect'
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nord-vpn-disconnect.desktop
+Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nordvpnDisconnect.desktop
 
 ######################### Mega #########################
 
@@ -281,20 +281,20 @@ sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
 
 ######################### belenaEtcher #########################
 
-wget -O /tmp/setup/etcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.79/balena-etcher-electron-1.5.79-linux-x64.zip
-unzip /tmp/setup/etcher.zip -d /tmp/setup/etcher
-sudo mv /tmp/setup/etcher/balenaEtcher-1.5.79-x64.AppImage /usr/local/etcher.AppImage
-sudo chmod +x /usr/local/etcher.AppImage
+wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.79/balena-etcher-electron-1.5.79-linux-x64.zip
+unzip -q /tmp/setup/belenaEtcher.zip -d /tmp/setup/belenaEtcher
+sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.79-x64.AppImage /usr/local/belenaEtcher.AppImage
+sudo chmod +x /usr/local/belenaEtcher.AppImage
 
-sudo cp icons/etcher.ico /usr/share/icons/etcher.ico
+sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
 
 echo "[Desktop Entry]
 Name=belenaEtcher
-Exec=/usr/local/etcher.AppImage
+Exec=/usr/local/belenaEtcher.AppImage
 StartupNotify=true
 Terminal=false
 Type=Application
-Icon=/usr/share/icons/etcher.ico" | sudo tee /usr/share/applications/etcher.desktop
+Icon=/usr/share/icons/belenaEtcher.ico" | sudo tee /usr/share/applications/belenaEtcher.desktop
 
 ######################### Clean up manual downloads #########################
 
