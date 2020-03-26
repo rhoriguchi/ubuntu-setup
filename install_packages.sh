@@ -99,6 +99,16 @@ sudo apt update && sudo apt install -y \
   docker-ce-cli \
   containerd.io
 
+sudo cp icons/docker.ico /usr/share/icons/docker.ico
+
+echo "[Desktop Entry]
+Name=Docker stats
+Exec=bash -c 'docker stats \$(docker ps -q)'
+StartupNotify=true
+Terminal=true
+Type=Application
+Icon=/usr/share/icons/docker.ico" | sudo tee /usr/share/applications/dockerStats.desktop
+
 ######################### Docker Compose #########################
 
 sudo curl -SL "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
