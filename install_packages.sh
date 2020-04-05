@@ -17,6 +17,7 @@ sudo apt update && sudo apt install -y \
   libreoffice \
   make \
   neofetch \
+  postgresql-client \
   steam \
   unzip \
   vlc \
