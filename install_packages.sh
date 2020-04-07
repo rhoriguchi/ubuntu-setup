@@ -61,10 +61,12 @@ sudo npm install -g \
 
 sudo apt update && sudo apt install -y \
   flake8 \
-  python3 \
-  python3-pip \
   mypy \
   pylint \
+  python-pytes \
+  python-pytest-xdist \
+  python3 \
+  python3-pip \
   virtualenv
 
 ######################### Stack #########################
@@ -330,8 +332,8 @@ Icon=/usr/share/icons/belenaEtcher.ico" | sudo tee /usr/share/applications/belen
 # Adb allready in sdk?
 
 sudo apt update && sudo apt install -y \
-  # adb \
-  android-file-transfer
+  \
+  android-file-transfer # adb \
 
 wget -O /tmp/setup/Appium.AppImage https://github.com/appium/appium-desktop/releases/download/v1.15.1/Appium-linux-1.15.1.AppImage
 sudo mv /tmp/setup/Appium.AppImage /usr/local/Appium.AppImage
