@@ -181,6 +181,12 @@ sudo apt update && sudo apt install -y \
   apt-transport-https \
   code
 
+######################### Microsoft Teams #########################
+
+echo "deb [arch=$(dpkg --print-architecture)] https://packages.microsoft.com/repos/ms-teams stable main" | sudo tee /etc/apt/sources.list.d/microsoft-teams.list
+curl -SL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo apt update && sudo apt install -y teams
+
 ######################### TeamViewer #########################
 
 echo "deb http://linux.teamviewer.com/deb stable main" | sudo tee /etc/apt/sources.list.d/teamviewer.list
