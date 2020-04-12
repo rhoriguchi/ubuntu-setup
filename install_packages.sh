@@ -114,7 +114,7 @@ Icon=/usr/share/icons/docker.ico" | sudo tee /usr/share/applications/dockerStats
 
 ######################### Docker Compose #########################
 
-sudo curl -SL "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -SL "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 ######################### Android development #########################
