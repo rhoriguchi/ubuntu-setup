@@ -3,4 +3,4 @@
 sh install_packages.sh
 sh init_dotfiles.sh
 sh tweak_gnome_settings.sh
-sh setup_power_management.sh
+sh set_up_power_management.sh
