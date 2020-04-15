@@ -338,7 +338,6 @@ Icon=/usr/share/icons/belenaEtcher.ico" | sudo tee /usr/share/applications/belen
 # Adb allready in sdk?
 
 sudo apt update && sudo apt install -y \
-  \
   android-file-transfer # adb \
 
 wget -O /tmp/setup/Appium.AppImage https://github.com/appium/appium-desktop/releases/download/v1.15.1/Appium-linux-1.15.1.AppImage
