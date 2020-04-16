@@ -2,8 +2,6 @@
 
 set -ex
 
-# Snagit
-
 ######################### Generic Apt packages #########################
 
 sudo apt update && sudo apt upgrade -y
@@ -11,6 +9,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt update && sudo apt install -y \
   filezilla \
   firefox \
+  flameshot \
   git \
   htop \
   k4dirstat \
