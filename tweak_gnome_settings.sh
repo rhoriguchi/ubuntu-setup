@@ -28,6 +28,11 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.desktop-icons show-home false
 gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
 
+######################### Background #########################
+
+cp wallpaper/image.jpg ~/Pictures/Wallpapers/image.jpg
+gsettings set org.gnome.desktop.background picture-uri "file:$(eval echo '~$USER')/Pictures/Wallpapers/image.jpg"
+
 ######################### Theme #########################
 
 sudo apt update && sudo apt install -y \
