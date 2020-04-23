@@ -21,6 +21,7 @@ sudo apt update && sudo apt install -y \
   unzip \
   vlc \
   wget \
+  wireguard \
   zsh
 
 ######################### Snap packages #########################
@@ -199,6 +200,7 @@ curl -SL https://repo.nordvpn.com/gpg/nordvpn_public.asc | sudo apt-key add -
 sudo apt update && sudo apt install -y nordvpn
 
 nordvpn set cybersec on
+nordvpn set technology nordlynx
 
 sudo cp icons/nordvpn.svg /usr/share/icons/nordvpn.svg
 
