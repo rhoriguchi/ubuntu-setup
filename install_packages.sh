@@ -7,16 +7,17 @@ set -ex
 sudo apt update && sudo apt upgrade -y
 
 sudo apt update && sudo apt install -y \
-  filezilla \
+  baobab \
   firefox \
   flameshot \
+  gimp \
   git \
   htop \
-  k4dirstat \
   libreoffice \
   make \
   neofetch \
   postgresql-client \
+  qbittorrent \
   steam \
   unzip \
   vlc \
@@ -31,18 +32,15 @@ sudo apt update && sudo apt install -y \
   snapd-xdg-open
 
 sudo snap install leagueoflegends --edge --devmode
-sudo snap refresh --candidate wine-platform-4-staging
+sudo snap refresh --candidate wine-platform-5-staging
 sudo snap refresh --candidate wine-platform-runtime
 
 ######################### Java #########################
 
-sudo apt purge -y \
-  openjdk-8-jre \
-  openjdk-8-jre-headless
-
 sudo apt update && sudo apt install -y \
   maven \
-  openjdk-14-jdk
+  openjdk-11-doc \
+  openjdk-11-jdk
 
 ######################### Node #########################
 
@@ -63,27 +61,16 @@ sudo apt update && sudo apt install -y \
   flake8 \
   mypy \
   pylint \
-  python-pytes \
-  python-pytest-xdist \
+  python3-pytest \
+  python3-pytest-xdist \
   python3 \
   python3-pip \
   virtualenv
 
-######################### Stack #########################
+######################### Docker #########################
 
-# TODO fix
-# sudo apt update && sudo apt install -y haskell-stack
-
-# stack upgrade --force-download
-# stack install \
-#   hindent \
-#   stylish-haskell
-
-######################### Docker and Docker Compose #########################
-
-sudo apt remove -y \
+sudo apt purge -y \
   docker \
-  docker-engine \
   docker.io \
   containerd \
   runc
@@ -96,13 +83,19 @@ sudo apt update && sudo apt install -y \
   software-properties-common
 
 curl -SL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+# TODO remove this as soon focal relase exists
+# echo "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+echo "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu bionic stable" | sudo tee /etc/apt/sources.list.d/docker.list
+
 sudo apt update && sudo apt install -y \
   docker-ce \
   docker-ce-cli \
   containerd.io
 
-sudo cp icons/docker.ico /usr/share/icons/docker.ico
+sudo systemctl enable docker
+sudo systemctl start docker
+
+sudo cp icons/docker.png /usr/share/icons/docker.png
 
 echo "[Desktop Entry]
 Name=Docker stats
@@ -110,26 +103,12 @@ Exec=bash -c 'docker stats \$(docker ps -q)'
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=/usr/share/icons/docker.ico" | sudo tee /usr/share/applications/dockerStats.desktop
+Icon=/usr/share/icons/docker.png" | sudo tee /usr/share/applications/dockerStats.desktop
 
 ######################### Docker Compose #########################
 
 sudo curl -SL "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-
-######################### Android development #########################
-
-sudo apt update && sudo apt install -y adb
-
-######################### qBittorrent #########################
-
-sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
-sudo apt update && sudo apt install -y qbittorrent
-
-######################### GIMP #########################
-
-sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y
-sudo apt update && sudo apt install -y gimp
 
 ######################### Spotify #########################
 
@@ -149,8 +128,8 @@ echo "deb http://qgis.org/debian $(lsb_release -cs) main
 deb-src http://qgis.org/debian $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/qgis.list
 curl -SL https://qgis.org/downloads/qgis-2019.gpg.key | sudo apt-key add -
 sudo apt update && sudo apt install -y \
-  python-matplotlib \
-  python-scipy \
+  python3-matplotlib \
+  python3-scipy \
   qgis
 
 qgis --nologo --code "$(pwd)/scripts/pycharmqgis.py"
@@ -257,7 +236,7 @@ sudo apt update && sudo apt install -y -f
 
 ######################### ytop #########################
 
-wget -O /tmp/setup/ytop.tar.gz https://github.com/cjbassi/ytop/releases/download/0.5.1/ytop-0.5.1-x86_64-unknown-linux-gnu.tar.gz
+wget -O /tmp/setup/ytop.tar.gz "https://github.com/cjbassi/ytop/releases/download/0.6.0/ytop-0.6.0-$(uname -m)-unknown-linux-gnu.tar.gz"
 tar -C /tmp/setup -xzf /tmp/setup/ytop.tar.gz
 sudo rm -rf /usr/local/bin/ytop
 sudo mv /tmp/setup/ytop /usr/local/bin/ytop
@@ -279,10 +258,10 @@ sudo apt update && sudo apt install -y -f
 
 ######################### JetBrains Toolbox #########################
 
-wget -O /tmp/setup/jetbrains-toolbox.tar.gz https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.16.6067.tar.gz
+wget -O /tmp/setup/jetbrains-toolbox.tar.gz https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.17.6802.tar.gz
 tar -C /tmp/setup -xzf /tmp/setup/jetbrains-toolbox.tar.gz
 sudo rm -rf /usr/local/jetbrains-toolbox
-sudo mv /tmp/setup/jetbrains-toolbox-1.16.6067 /usr/local/jetbrains-toolbox
+sudo mv /tmp/setup/jetbrains-toolbox-1.17.6802 /usr/local/jetbrains-toolbox
 /usr/local/jetbrains-toolbox/jetbrains-toolbox
 
 ######################### Postman #########################
@@ -310,9 +289,9 @@ sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
 
 ######################### belenaEtcher #########################
 
-wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.79/balena-etcher-electron-1.5.79-linux-x64.zip
+wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.81/balena-etcher-electron-1.5.81-linux-x64.zip
 unzip -q /tmp/setup/belenaEtcher.zip -d /tmp/setup/belenaEtcher
-sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.79-x64.AppImage /usr/local/belenaEtcher.AppImage
+sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.81-x64.AppImage /usr/local/belenaEtcher.AppImage
 sudo chmod +x /usr/local/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
@@ -327,19 +306,9 @@ Icon=/usr/share/icons/belenaEtcher.ico" | sudo tee /usr/share/applications/belen
 
 ######################### Android development #########################
 
-# TODO make same like other
-# TODO check if needed
-# sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0BB4A1B2FA1A38EB
-# sudo add-apt-repository "deb http://ppa.launchpad.net/samoilov-lex/aftl-stable/ubuntu artful main"
-
-# TODO install android sdk
-
-# TODO check if needed
-# Install sdk with apt not android studio
-# Adb allready in sdk?
-
 sudo apt update && sudo apt install -y \
-  android-file-transfer # adb \
+  android-file-transfer \
+  android-sdk
 
 wget -O /tmp/setup/Appium.AppImage https://github.com/appium/appium-desktop/releases/download/v1.15.1/Appium-linux-1.15.1.AppImage
 sudo mv /tmp/setup/Appium.AppImage /usr/local/Appium.AppImage

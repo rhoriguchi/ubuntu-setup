@@ -8,7 +8,7 @@ paths = ':'.join(sys.path). \
 with open('pycharmqgis.sh', 'w') as fileHandler:
     fileHandler.write('export PYTHONPATH=$PYTHONPATH:' + paths)
     fileHandler.write('\n')
-    fileHandler.write('sh ~/bin/pycharm')
+    fileHandler.write('sh ~/jetbrains/pycharm')
     fileHandler.write('\n')
 
 os._exit(0)

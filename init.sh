@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-sh install_packages.sh
-sh init_dotfiles.sh
-sh tweak_gnome_settings.sh
-sh set_up_autostart.sh
-sh set_up_power_management.sh
+set -ex
+
+bash install_packages.sh
+bash init_dotfiles.sh
+bash tweak_gnome_settings.sh
+bash set_up_autostart.sh
+bash set_up_power_management.sh

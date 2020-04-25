@@ -2,7 +2,8 @@
 
 set -ex
 
-sudo rm -f /home/rhoriguchi/.config/autostart/*
+sudo mkdir -p ~/.config/autostart/
+sudo rm -f ~/.config/autostart/*
 
 ln -s /usr/share/applications/flameshot.desktop ~/.config/autostart/flameshot.desktop
 ln -s /usr/share/applications/megasync.desktop ~/.config/autostart/megasync.desktop
