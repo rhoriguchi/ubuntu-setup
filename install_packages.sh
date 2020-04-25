@@ -162,7 +162,7 @@ sudo apt update && sudo apt install -y \
 
 ######################### Microsoft Teams #########################
 
-echo "deb [arch=$(dpkg --print-architecture)] https://packages.microsoft.com/repos/ms-teams stable main" | sudo tee /etc/apt/sources.list.d/microsoft-teams.list
+echo "deb [arch=$(dpkg --print-architecture)] https://packages.microsoft.com/repos/ms-teams stable main" | sudo tee /etc/apt/sources.list.d/teams.list
 curl -SL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo apt update && sudo apt install -y teams
 
