@@ -34,26 +34,6 @@ mkdir -p ~/Pictures/Wallpapers
 cp wallpaper/image.jpg ~/Pictures/Wallpapers/image.jpg
 gsettings set org.gnome.desktop.background picture-uri "file:$(eval echo '~')/Pictures/Wallpapers/image.jpg"
 
-######################### Theme #########################
-
-# TODO commented
-
-# sudo apt update && sudo apt install -y \
-#   autoconf \
-#   automake \
-#   git \
-#   gtk2-engines-murrine \
-#   libgtk-3-dev \
-#   pkg-config
-
-# git clone --depth 1 https://github.com/horst3180/arc-theme /tmp/arc-theme
-# sh /tmp/arc-theme/autogen.sh --prefix=/usr --with-gnome=3.22
-# sudo make install /tmp/arc-theme
-
-# gsettings set org.gnome.desktop.interface cursor-theme 'Arc-Darker'
-# gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
-# gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
-
 ######################### Icon Theme #########################
 
 sudo add-apt-repository ppa:papirus/papirus -y
