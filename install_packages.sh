@@ -61,10 +61,10 @@ sudo apt update && sudo apt install -y \
   flake8 \
   mypy \
   pylint \
-  python3-pytest \
-  python3-pytest-xdist \
   python3 \
   python3-pip \
+  python3-pytest \
+  python3-pytest-xdist \
   virtualenv
 
 ######################### Docker #########################
