@@ -251,12 +251,6 @@ Terminal=true
 Type=Application
 Icon=org.gnome.SystemMonitor" | sudo tee /usr/share/applications/ytop.desktop
 
-######################### Parsec #########################
-
-wget -O /tmp/setup/parsec.deb https://builds.parsecgaming.com/package/parsec-linux.deb
-sudo dpkg -i /tmp/setup/parsec.deb
-sudo apt update && sudo apt install -y -f
-
 ######################### GitKraken #########################
 
 wget -O /tmp/setup/gitkraken.deb https://release.axocdn.com/linux/gitkraken-$(dpkg --print-architecture).deb
