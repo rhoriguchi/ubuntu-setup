@@ -15,6 +15,7 @@ gsettings set org.gnome.gedit.preferences.editor insert-spaces true
 gsettings set org.gnome.gedit.preferences.editor tabs-size 4
 gsettings set org.gnome.login-screen enable-fingerprint-authentication false
 gsettings set org.gnome.login-screen enable-smartcard-authentication false
+gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.nautilus.preferences show-hidden-files true
 gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'suspend'
 gsettings set org.gnome.shell favorite-apps '[]'
