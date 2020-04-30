@@ -18,7 +18,6 @@ sudo apt update && sudo apt install -y \
   make \
   neofetch \
   postgresql-client \
-  powertop \
   qbittorrent \
   steam \
   unzip \
