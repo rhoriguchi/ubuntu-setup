@@ -8,7 +8,7 @@ set -ex
 gsettings set ca.desrt.dconf-editor.Settings show-warning false
 gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
 gsettings set org.gnome.desktop.interface show-battery-percentage true
-gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar "none"
+gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'none'
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
 gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
 gsettings set org.gnome.gedit.preferences.editor insert-spaces true
