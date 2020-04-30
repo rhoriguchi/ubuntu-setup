@@ -2,10 +2,26 @@
 
 set -ex
 
-######################### Gnome Settings #########################
+######################### General #########################
 
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-seconds true
+
+######################### Background #########################
+
+mkdir -p ~/Pictures/Wallpapers
+cp wallpaper/image.jpg ~/Pictures/Wallpapers/image.jpg
+gsettings set org.gnome.desktop.background picture-uri "file:$(eval echo '~')/Pictures/Wallpapers/image.jpg"
+
+######################### Icon Style #########################
+
+sudo add-apt-repository ppa:papirus/papirus -y
+sudo apt update && sudo apt install papirus-icon-theme -y
+
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+
+######################### Dash #########################
+
 gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.0
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'
@@ -20,20 +36,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 gsettings set org.gnome.shell.extensions.dash-to-dock show-favorites false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 
-######################### Background #########################
-
-mkdir -p ~/Pictures/Wallpapers
-cp wallpaper/image.jpg ~/Pictures/Wallpapers/image.jpg
-gsettings set org.gnome.desktop.background picture-uri "file:$(eval echo '~')/Pictures/Wallpapers/image.jpg"
-
-######################### Icon Theme #########################
-
-sudo add-apt-repository ppa:papirus/papirus -y
-sudo apt update && sudo apt install papirus-icon-theme -y
-
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
-
-######################### Terminal Theme #########################
+######################### Terminal #########################
 
 black="#000000"
 red="#FF4136"
