@@ -36,6 +36,30 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 gsettings set org.gnome.shell.extensions.dash-to-dock show-favorites false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 
+######################### Unite Shell #########################
+
+sudo apt update && sudo apt install -y x11-utils
+
+mkdir -p ~/.local/share/gnome-shell/extensions
+rm -rf ~/.local/share/gnome-shell/extensions/unite@hardpixel.eu
+
+wget -O /tmp/unite-shell.zip https://github.com/hardpixel/unite-shell/releases/download/v41/unite-shell-v41.zip
+unzip -q /tmp/unite-shell.zip -d ~/.local/share/gnome-shell/extensions
+gnome-extensions enable unite@hardpixel.eu
+
+sudo cp /home/rhoriguchi/.local/share/gnome-shell/extensions/unite@hardpixel.eu/schemas/org.gnome.shell.extensions.unite.gschema.xml /usr/share/glib-2.0/schemas
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+gsettings set org.gnome.shell.extensions.unite extend-left-box false
+gsettings set org.gnome.shell.extensions.unite hide-activities-button 'always'
+gsettings set org.gnome.shell.extensions.unite hide-aggregate-menu-arrow true
+gsettings set org.gnome.shell.extensions.unite hide-app-menu-icon true
+gsettings set org.gnome.shell.extensions.unite notifications-position 'center'
+gsettings set org.gnome.shell.extensions.unite show-desktop-name false
+gsettings set org.gnome.shell.extensions.unite show-window-buttons 'always'
+gsettings set org.gnome.shell.extensions.unite show-window-title 'never'
+gsettings set org.gnome.shell.extensions.unite window-buttons-placement 'left'
+
 ######################### Terminal #########################
 
 black="#000000"
