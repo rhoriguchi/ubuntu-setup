@@ -58,7 +58,6 @@ gsettings set org.gnome.shell.extensions.unite notifications-position 'center'
 gsettings set org.gnome.shell.extensions.unite show-desktop-name false
 gsettings set org.gnome.shell.extensions.unite show-window-buttons 'always'
 gsettings set org.gnome.shell.extensions.unite show-window-title 'never'
-gsettings set org.gnome.shell.extensions.unite window-buttons-placement 'left'
 
 ######################### Terminal #########################
 
