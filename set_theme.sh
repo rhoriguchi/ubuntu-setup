@@ -79,14 +79,14 @@ light_magenta="#D06DDE"
 light_cyan="#B2E9FF"
 light_white="#FFFFFF"
 
-default_terminal_profile="$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')"
+profile="$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')"
 
-gsettings set org.gnome.Terminal.Legacy.Profile:/:$default_terminal_profile/ background-color '#303030'
-gsettings set org.gnome.Terminal.Legacy.Profile:/:$default_terminal_profile/ background-transparency-percent 0
-gsettings set org.gnome.Terminal.Legacy.Profile:/:$default_terminal_profile/ cursor-background-color "$magenta"
-gsettings set org.gnome.Terminal.Legacy.Profile:/:$default_terminal_profile/ cursor-blink-mode 'on'
-gsettings set org.gnome.Terminal.Legacy.Profile:/:$default_terminal_profile/ cursor-colors-set true
-gsettings set org.gnome.Terminal.Legacy.Profile:/:$default_terminal_profile/ cursor-foreground-color "$white"
-gsettings set org.gnome.Terminal.Legacy.Profile:/:$default_terminal_profile/ foreground-color "$white"
-gsettings set org.gnome.Terminal.Legacy.Profile:/:$default_terminal_profile/ palette "['$black', '$red', '$green', '$yellow', '$blue', '$magenta', '$cyan', '$white', '$light_black', '$light_red', '$light_green', '$light_yellow', '$light_blue', '$light_magenta', '$light_cyan', '$light_white']"
-gsettings set org.gnome.Terminal.Legacy.Profile:/:$default_terminal_profile/ use-theme-colors false
+gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" background-color '#303030'
+gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" background-transparency-percent 0
+gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" cursor-background-color "$magenta"
+gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" cursor-blink-mode 'on'
+gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" cursor-colors-set true
+gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" cursor-foreground-color "$white"
+gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" foreground-color "$white"
+gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" palette "['$black', '$red', '$green', '$yellow', '$blue', '$magenta', '$cyan', '$white', '$light_black', '$light_red', '$light_green', '$light_yellow', '$light_blue', '$light_magenta', '$light_cyan', '$light_white']"
+gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" use-theme-colors false
