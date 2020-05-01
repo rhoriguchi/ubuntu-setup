@@ -77,7 +77,7 @@ light_yellow="#FFEA66"
 light_blue="#66ABE8"
 light_magenta="#D06DDE"
 light_cyan="#B2E9FF"
-light_white="#FFFFFF)"
+light_white="#FFFFFF"
 
 default_terminal_profile="$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')"
 
