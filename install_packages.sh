@@ -49,16 +49,14 @@ grep -qxF "export PATH=\"\$PATH:\$JAVA_HOME/bin\"" ~/.profile || echo "export PA
 
 ######################### Node #########################
 
-sudo apt update && sudo apt install -y npm
+sudo apt update && sudo apt install -y \
+  node-typescript \
+  npm
+
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
 sudo npm install -g npm
-
-sudo npm install -g \
-  eslint \
-  prettier \
-  typescript
 
 ######################### Python #########################
 
