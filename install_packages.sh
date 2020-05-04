@@ -314,6 +314,12 @@ sudo apt update && sudo apt install -y \
   android-file-transfer \
   android-sdk
 
+grep -qxF "export ANDROID_HOME=/usr/lib/android-sdk" ~/.profile || echo "export ANDROID_HOME=/usr/lib/android-sdk" >> ~/.profile
+grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME\"" >> ~/.profile
+grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/tools\"" >> ~/.profile
+grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/platform-tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/platform-tools\"" >> ~/.profile
+grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/build-tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/build-tools\"" >> ~/.profile
+
 wget -O /tmp/setup/Appium.AppImage https://github.com/appium/appium-desktop/releases/download/v1.15.1/Appium-linux-1.15.1.AppImage
 sudo mv /tmp/setup/Appium.AppImage /usr/local/Appium.AppImage
 sudo chmod +x /usr/local/Appium.AppImage
