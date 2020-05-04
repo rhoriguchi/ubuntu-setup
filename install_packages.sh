@@ -43,6 +43,9 @@ sudo apt update && sudo apt install -y \
   openjdk-11-doc \
   openjdk-11-jdk
 
+grep -qxF "export JAVA_HOME=/usr/lib/jvm/default-java" ~/.profile || echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> ~/.profile
+grep -qxF "export PATH=\"\$PATH:\$JAVA_HOME/bin\"" ~/.profile || echo "export PATH=\"\$PATH:\$JAVA_HOME/bin\"" >> ~/.profile
+
 ######################### Node #########################
 
 sudo apt update && sudo apt install -y npm
