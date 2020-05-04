@@ -43,6 +43,7 @@ sudo apt update && sudo apt install -y \
   openjdk-11-doc \
   openjdk-11-jdk
 
+# TODO improve this
 grep -qxF "export JAVA_HOME=/usr/lib/jvm/default-java" ~/.profile || echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> ~/.profile
 grep -qxF "export PATH=\"\$PATH:\$JAVA_HOME/bin\"" ~/.profile || echo "export PATH=\"\$PATH:\$JAVA_HOME/bin\"" >> ~/.profile
 
@@ -314,6 +315,7 @@ sudo apt update && sudo apt install -y \
   android-file-transfer \
   android-sdk
 
+# TODO improve this
 grep -qxF "export ANDROID_HOME=/usr/lib/android-sdk" ~/.profile || echo "export ANDROID_HOME=/usr/lib/android-sdk" >> ~/.profile
 grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME\"" >> ~/.profile
 grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/build-tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/build-tools\"" >> ~/.profile
