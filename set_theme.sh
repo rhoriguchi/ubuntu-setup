@@ -20,7 +20,7 @@ sudo apt update && sudo apt install papirus-icon-theme -y
 
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 
-######################### Dash #########################
+######################### GNOME Extension - Dash #########################
 
 gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.0
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
@@ -36,7 +36,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 gsettings set org.gnome.shell.extensions.dash-to-dock show-favorites false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 
-######################### Unite Shell #########################
+######################### GNOME Extension - Unite Shell #########################
 
 sudo apt update && sudo apt install -y x11-utils
 
