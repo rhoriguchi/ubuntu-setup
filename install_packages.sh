@@ -314,16 +314,9 @@ sudo apt update && sudo apt install -y \
   android-file-transfer \
   android-sdk
 
-wget -O /tmp/setup/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip
-unzip -o /tmp/setup/cmdline-tools.zip -d /tmp/setup/cmdline-tools
-
-sudo mkdir -p /usr/lib/android-sdk/cmdline-tools
-sudo cp -r /tmp/setup/cmdline-tools/tools/* /usr/lib/android-sdk/cmdline-tools
-
 grep -qxF "export ANDROID_HOME=/usr/lib/android-sdk" ~/.profile || echo "export ANDROID_HOME=/usr/lib/android-sdk" >> ~/.profile
 grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME\"" >> ~/.profile
 grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/build-tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/build-tools\"" >> ~/.profile
-grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/cmdline-tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/cmdline-tools\"" >> ~/.profile
 grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/platform-tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/platform-tools\"" >> ~/.profile
 grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/tools\"" >> ~/.profile
 
