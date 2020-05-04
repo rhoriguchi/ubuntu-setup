@@ -44,7 +44,7 @@ mkdir -p ~/.local/share/gnome-shell/extensions
 rm -rf ~/.local/share/gnome-shell/extensions/unite@hardpixel.eu
 
 wget -O /tmp/unite-shell.zip https://github.com/hardpixel/unite-shell/releases/download/v41/unite-shell-v41.zip
-unzip -q /tmp/unite-shell.zip -d ~/.local/share/gnome-shell/extensions
+unzip -o /tmp/unite-shell.zip -d ~/.local/share/gnome-shell/extensions
 gnome-extensions enable unite@hardpixel.eu
 
 sudo cp /home/rhoriguchi/.local/share/gnome-shell/extensions/unite@hardpixel.eu/schemas/org.gnome.shell.extensions.unite.gschema.xml /usr/share/glib-2.0/schemas

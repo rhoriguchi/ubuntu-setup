@@ -286,7 +286,7 @@ Icon=/usr/local/postman/app/resources/app/assets/icon.png" | sudo tee /usr/share
 ######################### Shift #########################
 
 wget -O /tmp/setup/shift.zip https://update.tryshift.com/download/version/4.0.2/linux_32
-unzip -q /tmp/setup/shift.zip -d /tmp/setup/shift
+unzip -o /tmp/setup/shift.zip -d /tmp/setup/shift
 sudo rm -rf /usr/local/shift
 sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
 /usr/local/shift/Shift &
@@ -294,7 +294,7 @@ sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
 ######################### belenaEtcher #########################
 
 wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.81/balena-etcher-electron-1.5.81-linux-x64.zip
-unzip -q /tmp/setup/belenaEtcher.zip -d /tmp/setup/belenaEtcher
+unzip -o /tmp/setup/belenaEtcher.zip -d /tmp/setup/belenaEtcher
 sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.81-x64.AppImage /usr/local/belenaEtcher.AppImage
 sudo chmod +x /usr/local/belenaEtcher.AppImage
 
