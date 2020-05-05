@@ -23,6 +23,9 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 
 ######################### Keybindings #########################
 
+# TODO find better keybinding
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized ['<Alt>F10']
+
 gsettings set org.freedesktop.ibus.general.hotkey next-engine '[]'
 gsettings set org.freedesktop.ibus.general.hotkey next-engine-in-menu '[]'
 gsettings set org.freedesktop.ibus.general.hotkey trigger '[]'
