@@ -6,6 +6,7 @@ set -ex
 
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-seconds true
+gsettings set org.gnome.gedit.plugins.filebrowser filter-mode ['hide-binary']
 
 ######################### Background #########################
 
