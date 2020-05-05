@@ -56,7 +56,6 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left '[]'
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right '[]'
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up '[]'
 gsettings set org.gnome.desktop.wm.keybindings panel-main-menu '[]'
-gsettings set org.gnome.desktop.wm.keybindings panel-run-dialog '[]'
 gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
 gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward '[]'
 gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward '[]'
