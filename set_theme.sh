@@ -59,7 +59,7 @@ gsettings set org.gnome.shell.extensions.unite show-desktop-name false
 gsettings set org.gnome.shell.extensions.unite show-window-buttons 'always'
 gsettings set org.gnome.shell.extensions.unite show-window-title 'never'
 
-######################### Gnome Terminal #########################
+######################### GNOME Terminal #########################
 
 black="#000000"
 red="#FF4136"
