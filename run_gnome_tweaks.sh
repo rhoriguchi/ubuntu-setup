@@ -154,9 +154,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock app-shift-hotkey-7 '[]'
 gsettings set org.gnome.shell.extensions.dash-to-dock app-shift-hotkey-8 '[]'
 gsettings set org.gnome.shell.extensions.dash-to-dock app-shift-hotkey-9 '[]'
 gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.0
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'focus-or-previews'
 gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-customize-running-dots true
 gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-color '#D2D2D2'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
