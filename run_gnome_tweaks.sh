@@ -169,22 +169,6 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 gsettings set org.gnome.shell.extensions.dash-to-dock show-favorites false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 
-######################### GNOME Extension - Pop Shell #########################
-
-git clone https://github.com/pop-os/shell.git /tmp/pop-shell
-
-pushd /tmp/pop-shell && sh rebuild.sh && popd
-
-sudo cp /tmp/pop-shell/schemas/org.gnome.shell.extensions.pop-shell.gschema.xml /usr/share/glib-2.0/schemas
-sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
-
-gsettings set org.gnome.gedit.plugins.filebrowser root ''
-gsettings set org.gnome.gedit.plugins.filebrowser virtual-root ''
-
-gsettings set org.gnome.shell.extensions.pop-shell gap-inner 1
-gsettings set org.gnome.shell.extensions.pop-shell gap-outer 1
-gsettings set org.gnome.shell.extensions.pop-shell snap-to-grid true
-
 ######################### GNOME Extension - Unite Shell #########################
 
 sudo apt update && sudo apt install -y x11-utils
