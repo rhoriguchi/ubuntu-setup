@@ -23,9 +23,6 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 
 ######################### Keybindings #########################
 
-# TODO find better keybinding
-gsettings set org.gnome.desktop.wm.keybindings toggle-maximized ['<Alt>F10']
-
 gsettings set org.freedesktop.ibus.general.hotkey next-engine '[]'
 gsettings set org.freedesktop.ibus.general.hotkey next-engine-in-menu '[]'
 gsettings set org.freedesktop.ibus.general.hotkey trigger '[]'
@@ -70,7 +67,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down '[]'
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-last '[]'
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up '[]'
 gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward '[]'
-gsettings set org.gnome.desktop.wm.keybindings toggle-maximized '[]'
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized ['<Super>Up']
 gsettings set org.gnome.desktop.wm.keybindings unmaximize '[]'
 gsettings set org.gnome.mutter.keybindings rotate-monitor '[]'
 gsettings set org.gnome.mutter.keybindings switch-monitor '[]'
@@ -99,7 +96,6 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys magnifier-zoom-in '[]
 gsettings set org.gnome.settings-daemon.plugins.media-keys magnifier-zoom-out '[]'
 gsettings set org.gnome.settings-daemon.plugins.media-keys screencast '[]'
 gsettings set org.gnome.settings-daemon.plugins.media-keys screenreader '[]'
-gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '[]'
 gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot '[]'
 gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot-clip '[]'
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Alt>t']"
