@@ -6,7 +6,7 @@ set -ex
 
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-seconds true
-gsettings set org.gnome.gedit.plugins.filebrowser filter-mode ['hide-binary']
+gsettings set org.gnome.gedit.plugins.filebrowser filter-mode "['hide-binary']"
 
 ######################### Background #########################
 
@@ -67,7 +67,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down '[]'
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-last '[]'
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up '[]'
 gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward '[]'
-gsettings set org.gnome.desktop.wm.keybindings toggle-maximized ['<Super>Up']
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>Up']"
 gsettings set org.gnome.desktop.wm.keybindings unmaximize '[]'
 gsettings set org.gnome.mutter.keybindings rotate-monitor '[]'
 gsettings set org.gnome.mutter.keybindings switch-monitor '[]'
