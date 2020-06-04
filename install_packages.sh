@@ -111,7 +111,7 @@ Icon=/usr/share/icons/docker.png" | sudo tee /usr/share/applications/dockerStats
 
 ######################### Docker Compose #########################
 
-sudo curl -SL "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -SL "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 ######################### Spotify #########################
