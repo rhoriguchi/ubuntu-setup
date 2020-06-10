@@ -240,7 +240,7 @@ sudo apt update && sudo apt install -y -f
 
 ######################### ytop #########################
 
-wget -O /tmp/setup/ytop.tar.gz "https://github.com/cjbassi/ytop/releases/download/0.6.0/ytop-0.6.0-$(uname -m)-unknown-linux-gnu.tar.gz"
+wget -O /tmp/setup/ytop.tar.gz "https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-$(uname -m)-unknown-linux-gnu.tar.gz"
 tar -C /tmp/setup -xzf /tmp/setup/ytop.tar.gz
 sudo rm -rf /usr/local/bin/ytop
 sudo mv /tmp/setup/ytop /usr/local/bin/ytop
@@ -285,7 +285,7 @@ Icon=/usr/local/postman/app/resources/app/assets/icon.png" | sudo tee /usr/share
 
 ######################### Shift #########################
 
-wget -O /tmp/setup/shift.zip https://update.tryshift.com/download/version/4.0.2/linux_32
+wget -O /tmp/setup/shift.zip https://update.tryshift.com/download/version/4.0.30-stable/linux_32
 unzip -o /tmp/setup/shift.zip -d /tmp/setup/shift
 sudo rm -rf /usr/local/shift
 sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
@@ -293,9 +293,9 @@ sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
 
 ######################### belenaEtcher #########################
 
-wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.81/balena-etcher-electron-1.5.81-linux-x64.zip
+wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.97/balena-etcher-electron-1.5.97-linux-x64.zip
 unzip -o /tmp/setup/belenaEtcher.zip -d /tmp/setup/belenaEtcher
-sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.81-x64.AppImage /usr/local/belenaEtcher.AppImage
+sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.97-x64.AppImage /usr/local/belenaEtcher.AppImage
 sudo chmod +x /usr/local/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
