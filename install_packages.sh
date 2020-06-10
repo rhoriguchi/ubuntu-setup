@@ -308,34 +308,6 @@ Terminal=false
 Type=Application
 Icon=/usr/share/icons/belenaEtcher.ico" | sudo tee /usr/share/applications/belenaEtcher.desktop
 
-######################### Android development #########################
-
-sudo apt update && sudo apt install -y \
-  android-file-transfer \
-  android-sdk
-
-# TODO improve this
-grep -qxF "export ANDROID_HOME=/usr/lib/android-sdk" ~/.profile || echo "export ANDROID_HOME=/usr/lib/android-sdk" >> ~/.profile
-grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME\"" >> ~/.profile
-grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/build-tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/build-tools\"" >> ~/.profile
-grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/platform-tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/platform-tools\"" >> ~/.profile
-grep -qxF "export PATH=\"\$PATH:\$ANDROID_HOME/tools\"" ~/.profile || echo "export PATH=\"\$PATH:\$ANDROID_HOME/tools\"" >> ~/.profile
-
-wget -O /tmp/setup/Appium.AppImage https://github.com/appium/appium-desktop/releases/download/v1.15.1/Appium-linux-1.15.1.AppImage
-sudo mv /tmp/setup/Appium.AppImage /usr/local/Appium.AppImage
-sudo chmod +x /usr/local/Appium.AppImage
-
-sudo cp icons/appium.png /usr/share/icons/appium.png
-
-echo "[Desktop Entry]
-Name=Appium
-Exec=/usr/local/Appium.AppImage
-StartupNotify=true
-Terminal=false
-Type=Application
-Icon=/usr/share/icons/appium.png
-X-AppImage-Version=1.15.1" | sudo tee /usr/share/applications/appium.desktop
-
 ######################### Clean up manual downloads #########################
 
 sudo rm -rf /tmp/setup
