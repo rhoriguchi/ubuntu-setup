@@ -13,7 +13,7 @@ sudo apt update && sudo apt install -y \
   flameshot \
   gimp \
   git \
-  git-crypt
+  git-crypt \
   htop \
   libreoffice \
   make \
