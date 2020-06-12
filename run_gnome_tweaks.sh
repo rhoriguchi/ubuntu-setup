@@ -94,7 +94,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys logout '[]'
 gsettings set org.gnome.settings-daemon.plugins.media-keys magnifier '[]'
 gsettings set org.gnome.settings-daemon.plugins.media-keys magnifier-zoom-in '[]'
 gsettings set org.gnome.settings-daemon.plugins.media-keys magnifier-zoom-out '[]'
-gsettings set org.gnome.settings-daemon.plugins.media-keys screencast '[]'
+gsettings set org.gnome.settings-daemon.plugins.media-keys screencast "['<Ctrl><Shift><Alt>R']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys screenreader '[]'
 gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot '[]'
 gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot-clip '[]'
