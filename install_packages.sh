@@ -262,10 +262,10 @@ sudo apt update && sudo apt install -y -f
 
 ######################### JetBrains Toolbox #########################
 
-wget -O /tmp/setup/jetbrains-toolbox.tar.gz https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.17.6802.tar.gz
+wget -O /tmp/setup/jetbrains-toolbox.tar.gz https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.17.7139.tar.gz
 tar -C /tmp/setup -xzf /tmp/setup/jetbrains-toolbox.tar.gz
 sudo rm -rf /usr/local/jetbrains-toolbox
-sudo mv /tmp/setup/jetbrains-toolbox-1.17.6802 /usr/local/jetbrains-toolbox
+sudo mv /tmp/setup/jetbrains-toolbox-1.17.7139 /usr/local/jetbrains-toolbox
 /usr/local/jetbrains-toolbox/jetbrains-toolbox
 
 ######################### Postman #########################
@@ -285,7 +285,7 @@ Icon=/usr/local/postman/app/resources/app/assets/icon.png" | sudo tee /usr/share
 
 ######################### Shift #########################
 
-wget -O /tmp/setup/shift.zip https://update.tryshift.com/download/version/4.0.30-stable/linux_32
+wget -O /tmp/setup/shift.zip https://update.tryshift.com/download/version/5.0.72-stable/linux_32
 unzip -o /tmp/setup/shift.zip -d /tmp/setup/shift
 sudo rm -rf /usr/local/shift
 sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
@@ -293,9 +293,9 @@ sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
 
 ######################### belenaEtcher #########################
 
-wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.97/balena-etcher-electron-1.5.97-linux-x64.zip
+wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.101/balena-etcher-electron-1.5.101-linux-x64.zip
 unzip -o /tmp/setup/belenaEtcher.zip -d /tmp/setup/belenaEtcher
-sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.97-x64.AppImage /usr/local/belenaEtcher.AppImage
+sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.101-x64.AppImage /usr/local/belenaEtcher.AppImage
 sudo chmod +x /usr/local/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
