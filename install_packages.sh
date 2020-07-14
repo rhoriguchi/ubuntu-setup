@@ -87,9 +87,7 @@ sudo apt update && sudo apt install -y \
   software-properties-common
 
 curl -SL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-# TODO remove this as soon focal relase exists
-# echo "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
-echo "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu bionic stable" | sudo tee /etc/apt/sources.list.d/docker.list
+echo "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
 
 sudo apt update && sudo apt install -y \
   docker-ce \
