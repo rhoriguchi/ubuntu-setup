@@ -43,7 +43,6 @@ Replace `USERNAME` with git username and `PASSWORD` with git password
 
 ```bash
 echo 'https://USERNAME:PASSWORD@github.com' > ~/.git-credentials
-
 ```
 
 ### JetBrains Toolbox
