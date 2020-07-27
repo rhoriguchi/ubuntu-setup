@@ -124,29 +124,6 @@ echo "deb [arch=$(dpkg --print-architecture)] http://dl.google.com/linux/chrome/
 curl -SL https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo apt update && sudo apt install -y google-chrome-stable
 
-######################### QGIS #########################
-
-echo "deb http://qgis.org/debian $(lsb_release -cs) main
-deb-src http://qgis.org/debian $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/qgis.list
-curl -SL https://qgis.org/downloads/qgis-2019.gpg.key | sudo apt-key add -
-sudo apt update && sudo apt install -y \
-  python3-matplotlib \
-  python3-scipy \
-  qgis
-
-qgis --nologo --code "$(pwd)/scripts/pycharmqgis.py"
-sudo mv pycharmqgis.sh /usr/local/pycharmqgis.sh
-
-sudo cp icons/pycharmqgis.svg /usr/share/icons/pycharmqgis.svg
-
-echo "[Desktop Entry]
-Name=PyCharm Professional with QGIS
-Exec=sh /usr/local/pycharmqgis.sh
-StartupNotify=true
-Terminal=false
-Type=Application
-Icon=/usr/share/icons/pycharmqgis.svg" | sudo tee /usr/share/applications/pyCharmQgis.desktop
-
 ######################### Resilio Sync #########################
 
 echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list
