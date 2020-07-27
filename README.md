@@ -17,7 +17,7 @@ Login to:
 - Firefox
 - Gitkraken
 - League of Legends
-- MeagSync
+- MegaSync
 - MS Team
 - Postman
 - Resilio Sync
