@@ -268,9 +268,9 @@ sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
 
 ######################### belenaEtcher #########################
 
-wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.101/balena-etcher-electron-1.5.101-linux-x64.zip
+wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.102/balena-etcher-electron-1.5.102-linux-x64.zip
 unzip -o /tmp/setup/belenaEtcher.zip -d /tmp/setup/belenaEtcher
-sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.101-x64.AppImage /usr/local/belenaEtcher.AppImage
+sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.102-x64.AppImage /usr/local/belenaEtcher.AppImage
 sudo chmod +x /usr/local/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
