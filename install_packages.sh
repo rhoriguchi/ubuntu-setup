@@ -209,7 +209,7 @@ mkdir -p /tmp/setup
 
 ######################### Discord #########################
 
-wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.10/discord-0.0.10.deb
+wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.11/discord-0.0.11.deb
 sudo dpkg -i /tmp/setup/discord.deb
 sudo apt update && sudo apt install -y -f
 
