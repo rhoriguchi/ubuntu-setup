@@ -112,6 +112,12 @@ Icon=/usr/share/icons/docker.png" | sudo tee /usr/share/applications/dockerStats
 sudo curl -SL "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+######################### KeePass 2 #########################
+
+sudo apt update && sudo apt install -y \
+  keepass2 \
+  mono-complete
+
 ######################### Spotify #########################
 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
