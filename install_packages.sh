@@ -99,13 +99,15 @@ sudo systemctl start docker
 
 sudo cp icons/docker.png /usr/share/icons/docker.png
 
-echo "[Desktop Entry]
+sudo bash -c "cat > /usr/share/applications/dockerStats.desktop" << EOF
+[Desktop Entry]
 Name=Docker stats
-Exec=bash -c 'docker stats \$(docker ps -q)'
+Exec=bash -c "docker stats \$(docker ps -q)"
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=/usr/share/icons/docker.png" | sudo tee /usr/share/applications/dockerStats.desktop
+Icon=/usr/share/icons/docker.png
+EOF
 
 ######################### Docker Compose #########################
 
@@ -168,26 +170,34 @@ nordvpn set technology nordlynx
 
 sudo cp icons/nordvpn.svg /usr/share/icons/nordvpn.svg
 
-echo "[Desktop Entry]
+sudo bash -c "cat > /usr/share/applications/nordvpnConnect.desktop" << EOF
+[Desktop Entry]
 Name=NordVPN connect
-Exec=bash -c 'nordvpn connect'
+Exec=bash -c "nordvpn connect"
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nordvpnConnect.desktop
+Icon=/usr/share/icons/nordvpn.svg
+EOF
 
-echo "[Desktop Entry]
+sudo bash -c "cat > /usr/share/applications/nordvpnDisconnect.desktop" << EOF
+[Desktop Entry]
 Name=NordVPN disconnect
-Exec=bash -c 'nordvpn disconnect'
+Exec=bash -c "nordvpn disconnect"
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=/usr/share/icons/nordvpn.svg" | sudo tee /usr/share/applications/nordvpnDisconnect.desktop
+Icon=/usr/share/icons/nordvpn.svg
+EOF
 
 ######################### Mega #########################
 
-echo "deb https://mega.nz/linux/MEGAsync/xUbuntu_$(lsb_release -rs)/ ./" | sudo tee /etc/apt/sources.list.d/megasync.list
-echo "-----BEGIN PGP PUBLIC KEY BLOCK-----
+sudo bash -c "cat > /etc/apt/sources.list.d/megasync.list" << EOF
+deb https://mega.nz/linux/MEGAsync/xUbuntu_$(lsb_release -rs)/ .
+EOF
+
+sudo apt-key add << EOF
+-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2
 
 mI0EVj3AgQEEAO2XyJgpvE5HDRVsggcrMhf5+KpQepl7m7OyrPSgxLi72Wuy5GWp
@@ -206,7 +216,8 @@ Jjiho4rUEW8c1EUPvK8v1jRGwjYED3ihJ6510eblYFPl+6k91OWlScnxuVVAmSn4
 35RW3vR+nYUvf3s8rctbw97gJJZAA7p5oAowTux3oHotKSYhhxKcz15goMXzSb5G
 /h7fJRhMnw4=
 =fp/e
------END PGP PUBLIC KEY BLOCK-----" | sudo apt-key add -
+-----END PGP PUBLIC KEY BLOCK-----
+EOF
 sudo apt update && sudo apt install -y megasync
 
 ######################### Manual downloads #########################
@@ -228,13 +239,15 @@ sudo rm -rf /usr/local/bin/ytop
 sudo mv "$workdir/ytop" /usr/local/bin/ytop
 sudo chmod +x /usr/local/bin/ytop
 
-echo "[Desktop Entry]
+sudo bash -c "cat > /usr/share/applications/ytop.desktop" << EOF
+[Desktop Entry]
 Name=ytop
-Exec=bash -c 'ytop --per-cpu'
+Exec=bash -c "ytop --per-cpu"
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=org.gnome.SystemMonitor" | sudo tee /usr/share/applications/ytop.desktop
+Icon=org.gnome.SystemMonitor
+EOF
 
 ######################### GitKraken #########################
 
@@ -256,13 +269,15 @@ tar -C "$workdir" -xzf "$workdir/postman.tar.gz"
 sudo rm -rf /usr/local/postman
 sudo mv "$workdir/Postman" /usr/local/postman
 
-echo "[Desktop Entry]
+sudo bash -c "cat > /usr/share/applications/postman.desktop" << EOF
+[Desktop Entry]
 Name=Postman
 Exec=/usr/local/postman/Postman
 StartupNotify=true
 Terminal=false
 Type=Application
-Icon=/usr/local/postman/app/resources/app/assets/icon.png" | sudo tee /usr/share/applications/postman.desktop
+Icon=/usr/local/postman/app/resources/app/assets/icon.png
+EOF
 
 ######################### Shift #########################
 
@@ -280,13 +295,15 @@ sudo chmod +x /usr/local/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
 
-echo "[Desktop Entry]
+sudo bash -c "cat > /usr/share/applications/belenaEtcher.desktop" << EOF
+[Desktop Entry]
 Name=belenaEtcher
 Exec=/usr/local/belenaEtcher.AppImage
 StartupNotify=true
 Terminal=false
 Type=Application
-Icon=/usr/share/icons/belenaEtcher.ico" | sudo tee /usr/share/applications/belenaEtcher.desktop
+Icon=/usr/share/icons/belenaEtcher.ico
+EOF
 
 ######################### Clean up manual downloads #########################
 
