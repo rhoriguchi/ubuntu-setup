@@ -211,20 +211,21 @@ sudo apt update && sudo apt install -y megasync
 
 ######################### Manual downloads #########################
 
-mkdir -p /tmp/setup
+workdir="$(mktemp -d)"
+mkdir -p "$workdir"
 
 ######################### Discord #########################
 
-wget -O /tmp/setup/discord.deb https://dl.discordapp.net/apps/linux/0.0.11/discord-0.0.11.deb
-sudo dpkg -i /tmp/setup/discord.deb
+wget -O "$workdir/discord.deb" https://dl.discordapp.net/apps/linux/0.0.11/discord-0.0.11.deb
+sudo dpkg -i "$workdir/discord.deb"
 sudo apt update && sudo apt install -y -f
 
 ######################### ytop #########################
 
-wget -O /tmp/setup/ytop.tar.gz "https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-$(uname -m)-unknown-linux-gnu.tar.gz"
-tar -C /tmp/setup -xzf /tmp/setup/ytop.tar.gz
+wget -O "$workdir/ytop.tar.gz" "https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-$(uname -m)-unknown-linux-gnu.tar.gz"
+tar -C "$workdir" -xzf "$workdir/ytop.tar.gz"
 sudo rm -rf /usr/local/bin/ytop
-sudo mv /tmp/setup/ytop /usr/local/bin/ytop
+sudo mv "$workdir/ytop" /usr/local/bin/ytop
 sudo chmod +x /usr/local/bin/ytop
 
 echo "[Desktop Entry]
@@ -237,24 +238,23 @@ Icon=org.gnome.SystemMonitor" | sudo tee /usr/share/applications/ytop.desktop
 
 ######################### GitKraken #########################
 
-wget -O /tmp/setup/gitkraken.deb https://release.axocdn.com/linux/gitkraken-$(dpkg --print-architecture).deb
-sudo dpkg -i /tmp/setup/gitkraken.deb
+wget -O "$workdir/gitkraken.deb" https://release.axocdn.com/linux/gitkraken-$(dpkg --print-architecture).deb
+sudo dpkg -i "$workdir/gitkraken.deb"
 sudo apt update && sudo apt install -y -f
 
 ######################### JetBrains Toolbox #########################
 
-wget -O /tmp/setup/jetbrains-toolbox.tar.gz https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.17.7139.tar.gz
-tar -C /tmp/setup -xzf /tmp/setup/jetbrains-toolbox.tar.gz
-sudo rm -rf /usr/local/jetbrains-toolbox
-sudo mv /tmp/setup/jetbrains-toolbox-1.17.7139 /usr/local/jetbrains-toolbox
+wget -O "$workdir/jetbrains-toolbox.tar.gz" https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.17.7391.tar.gz
+tar -C "$workdir" -xzf "$workdir/jetbrains-toolbox.tar.gz"
+sudo mv -f "$workdir/jetbrains-toolbox-1.17.7391" "/usr/local/jetbrains-toolbox"
 /usr/local/jetbrains-toolbox/jetbrains-toolbox
 
 ######################### Postman #########################
 
-wget -O /tmp/setup/postman.tar.gz https://dl.pstmn.io/download/latest/linux64
-tar -C /tmp/setup -xzf /tmp/setup/postman.tar.gz
+wget -O "$workdir/postman.tar.gz" https://dl.pstmn.io/download/latest/linux64
+tar -C "$workdir" -xzf "$workdir/postman.tar.gz"
 sudo rm -rf /usr/local/postman
-sudo mv /tmp/setup/Postman /usr/local/postman
+sudo mv "$workdir/Postman" /usr/local/postman
 
 echo "[Desktop Entry]
 Name=Postman
@@ -266,17 +266,16 @@ Icon=/usr/local/postman/app/resources/app/assets/icon.png" | sudo tee /usr/share
 
 ######################### Shift #########################
 
-wget -O /tmp/setup/shift.zip https://update.tryshift.com/download/version/5.0.72-stable/linux_32
-unzip -o /tmp/setup/shift.zip -d /tmp/setup/shift
-sudo rm -rf /usr/local/shift
-sudo mv /tmp/setup/shift/Shift-linux-x64 /usr/local/shift
+wget -O "$workdir/shift.zip" https://update.tryshift.com/download/version/5.0.72-stable/linux_32
+unzip -o "$workdir/shift.zip" -d "$workdir/shift"
+sudo mv -f "$workdir/shift/Shift-linux-x64" /usr/local/shift
 /usr/local/shift/Shift &
 
 ######################### belenaEtcher #########################
 
-wget -O /tmp/setup/belenaEtcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.102/balena-etcher-electron-1.5.102-linux-x64.zip
-unzip -o /tmp/setup/belenaEtcher.zip -d /tmp/setup/belenaEtcher
-sudo mv /tmp/setup/belenaEtcher/balenaEtcher-1.5.102-x64.AppImage /usr/local/belenaEtcher.AppImage
+wget -O "$workdir/belenaEtcher.zip" https://github.com/balena-io/etcher/releases/download/v1.5.102/balena-etcher-electron-1.5.102-linux-x64.zip
+unzip -o "$workdir/belenaEtcher.zip" -d "$workdir/belenaEtcher"
+sudo mv "$workdir/belenaEtcher/balenaEtcher-1.5.102-x64.AppImage" /usr/local/belenaEtcher.AppImage
 sudo chmod +x /usr/local/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
@@ -291,6 +290,6 @@ Icon=/usr/share/icons/belenaEtcher.ico" | sudo tee /usr/share/applications/belen
 
 ######################### Clean up manual downloads #########################
 
-sudo rm -rf /tmp/setup
+sudo rm -rf "$workdir"
 sudo apt update && sudo apt install -y -f
 sudo apt autoremove -y
