@@ -99,7 +99,7 @@ sudo systemctl start docker
 
 sudo cp icons/docker.png /usr/share/icons/docker.png
 
-sudo bash -c "cat > /usr/share/applications/dockerStats.desktop" << EOF
+sudo bash -c "cat > /usr/share/applications/dockerStats.desktop" << EOL
 [Desktop Entry]
 Name=Docker stats
 Exec=bash -c "docker stats \$(docker ps -q)"
@@ -107,7 +107,7 @@ StartupNotify=true
 Terminal=true
 Type=Application
 Icon=/usr/share/icons/docker.png
-EOF
+EOL
 
 ######################### Docker Compose #########################
 
@@ -170,7 +170,7 @@ nordvpn set technology nordlynx
 
 sudo cp icons/nordvpn.svg /usr/share/icons/nordvpn.svg
 
-sudo bash -c "cat > /usr/share/applications/nordvpnConnect.desktop" << EOF
+sudo bash -c "cat > /usr/share/applications/nordvpnConnect.desktop" << EOL
 [Desktop Entry]
 Name=NordVPN connect
 Exec=bash -c "nordvpn connect"
@@ -178,9 +178,9 @@ StartupNotify=true
 Terminal=true
 Type=Application
 Icon=/usr/share/icons/nordvpn.svg
-EOF
+EOL
 
-sudo bash -c "cat > /usr/share/applications/nordvpnDisconnect.desktop" << EOF
+sudo bash -c "cat > /usr/share/applications/nordvpnDisconnect.desktop" << EOL
 [Desktop Entry]
 Name=NordVPN disconnect
 Exec=bash -c "nordvpn disconnect"
@@ -188,15 +188,15 @@ StartupNotify=true
 Terminal=true
 Type=Application
 Icon=/usr/share/icons/nordvpn.svg
-EOF
+EOL
 
 ######################### Mega #########################
 
-sudo bash -c "cat > /etc/apt/sources.list.d/megasync.list" << EOF
+sudo bash -c "cat > /etc/apt/sources.list.d/megasync.list" << EOL
 deb https://mega.nz/linux/MEGAsync/xUbuntu_$(lsb_release -rs)/ .
-EOF
+EOL
 
-sudo apt-key add << EOF
+sudo apt-key add << EOL
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2
 
@@ -217,7 +217,7 @@ Jjiho4rUEW8c1EUPvK8v1jRGwjYED3ihJ6510eblYFPl+6k91OWlScnxuVVAmSn4
 /h7fJRhMnw4=
 =fp/e
 -----END PGP PUBLIC KEY BLOCK-----
-EOF
+EOL
 sudo apt update && sudo apt install -y megasync
 
 ######################### Manual downloads #########################
@@ -239,7 +239,7 @@ sudo rm -rf /usr/local/bin/ytop
 sudo mv "$workdir/ytop" /usr/local/bin/ytop
 sudo chmod +x /usr/local/bin/ytop
 
-sudo bash -c "cat > /usr/share/applications/ytop.desktop" << EOF
+sudo bash -c "cat > /usr/share/applications/ytop.desktop" << EOL
 [Desktop Entry]
 Name=ytop
 Exec=bash -c "ytop --per-cpu"
@@ -247,7 +247,7 @@ StartupNotify=true
 Terminal=true
 Type=Application
 Icon=org.gnome.SystemMonitor
-EOF
+EOL
 
 ######################### GitKraken #########################
 
@@ -269,7 +269,7 @@ tar -C "$workdir" -xzf "$workdir/postman.tar.gz"
 sudo rm -rf /usr/local/postman
 sudo mv "$workdir/Postman" /usr/local/postman
 
-sudo bash -c "cat > /usr/share/applications/postman.desktop" << EOF
+sudo bash -c "cat > /usr/share/applications/postman.desktop" << EOL
 [Desktop Entry]
 Name=Postman
 Exec=/usr/local/postman/Postman
@@ -277,7 +277,7 @@ StartupNotify=true
 Terminal=false
 Type=Application
 Icon=/usr/local/postman/app/resources/app/assets/icon.png
-EOF
+EOL
 
 ######################### Shift #########################
 
@@ -295,7 +295,7 @@ sudo chmod +x /usr/local/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
 
-sudo bash -c "cat > /usr/share/applications/belenaEtcher.desktop" << EOF
+sudo bash -c "cat > /usr/share/applications/belenaEtcher.desktop" << EOL
 [Desktop Entry]
 Name=belenaEtcher
 Exec=/usr/local/belenaEtcher.AppImage
@@ -303,7 +303,7 @@ StartupNotify=true
 Terminal=false
 Type=Application
 Icon=/usr/share/icons/belenaEtcher.ico
-EOF
+EOL
 
 ######################### Clean up manual downloads #########################
 
