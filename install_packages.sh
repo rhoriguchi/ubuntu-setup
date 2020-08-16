@@ -114,6 +114,15 @@ EOL
 sudo curl -SL "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+######################### Terraform #########################
+
+curl -SL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+echo "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+sudo apt update && sudo apt install -y terraform
+
+terraform -install-autocomplete
+
 ######################### KeePass 2 #########################
 
 sudo apt update && sudo apt install -y \
