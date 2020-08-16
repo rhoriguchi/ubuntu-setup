@@ -192,7 +192,7 @@ EOL
 
 ######################### Mega #########################
 
-sudo bash -c "cat > /etc/apt/sources.list.d/megasync.list" << EOL
+echo "deb https://mega.nz/linux/MEGAsync/xUbuntu_$(lsb_release -rs)/ ./" | sudo tee /etc/apt/sources.list.d/megasync.list
 deb https://mega.nz/linux/MEGAsync/xUbuntu_$(lsb_release -rs)/ .
 EOL
 
