@@ -289,16 +289,16 @@ EOL
 
 ######################### Shift #########################
 
-wget -O "$workdir/shift.zip" https://update.tryshift.com/download/version/5.0.72-stable/linux_32
+wget -O "$workdir/shift.zip" https://update.tryshift.com/download/version/5.0.81-stable/linux_32
 unzip -o "$workdir/shift.zip" -d "$workdir/shift"
 sudo mv -f "$workdir/shift/Shift-linux-x64" /usr/local/shift
 /usr/local/shift/Shift &
 
 ######################### belenaEtcher #########################
 
-wget -O "$workdir/belenaEtcher.zip" https://github.com/balena-io/etcher/releases/download/v1.5.102/balena-etcher-electron-1.5.102-linux-x64.zip
+wget -O "$workdir/belenaEtcher.zip" https://github.com/balena-io/etcher/releases/download/v1.5.105/balena-etcher-electron-1.5.105-linux-x64.zip
 unzip -o "$workdir/belenaEtcher.zip" -d "$workdir/belenaEtcher"
-sudo mv "$workdir/belenaEtcher/balenaEtcher-1.5.102-x64.AppImage" /usr/local/belenaEtcher.AppImage
+sudo mv "$workdir/belenaEtcher/balenaEtcher-1.5.105-x64.AppImage" /usr/local/belenaEtcher.AppImage
 sudo chmod +x /usr/local/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
