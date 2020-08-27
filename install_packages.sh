@@ -232,7 +232,6 @@ sudo apt update && sudo apt install -y megasync
 ######################### Manual downloads #########################
 
 workdir="$(mktemp -d)"
-mkdir -p "$workdir"
 
 ######################### Discord #########################
 
