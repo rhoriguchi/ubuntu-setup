@@ -157,6 +157,14 @@ echo "deb [arch=$(dpkg --print-architecture)] https://packages.microsoft.com/rep
 curl -SL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo apt update && sudo apt install -y teams
 
+######################### .NET Core SDK #########################
+
+echo "deb [arch=$(dpkg --print-architecture)] https://packages.microsoft.com/ubuntu/$(lsb_release -rs)/prod $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/microsoft-prod.list
+curl -SL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo apt update && sudo apt install -y \
+  apt-transport-https \
+  dotnet-sdk-3.1
+
 ######################### TeamViewer #########################
 
 echo "deb http://linux.teamviewer.com/deb stable main" | sudo tee /etc/apt/sources.list.d/teamviewer.list
