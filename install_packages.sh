@@ -15,8 +15,10 @@ sudo apt update && sudo apt install -y \
   git \
   git-crypt \
   htop \
+  keepass2 \
   libreoffice \
   make \
+  mono-complete \
   neofetch \
   postgresql-client \
   qbittorrent \
@@ -118,16 +120,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 curl -SL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 echo "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-
 sudo apt update && sudo apt install -y terraform
 
 terraform -install-autocomplete
-
-######################### KeePass 2 #########################
-
-sudo apt update && sudo apt install -y \
-  keepass2 \
-  mono-complete
 
 ######################### Spotify #########################
 
@@ -202,9 +197,6 @@ EOL
 ######################### Mega #########################
 
 echo "deb https://mega.nz/linux/MEGAsync/xUbuntu_$(lsb_release -rs)/ ./" | sudo tee /etc/apt/sources.list.d/megasync.list
-deb https://mega.nz/linux/MEGAsync/xUbuntu_$(lsb_release -rs)/ .
-EOL
-
 sudo apt-key add << EOL
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2
