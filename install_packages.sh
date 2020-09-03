@@ -57,9 +57,11 @@ sudo apt update && sudo apt install -y \
   npm
 
 sudo npm cache clean -f
-sudo npm install -g n
+sudo npm install -g \
+  n \
+  npm
+
 sudo n stable
-sudo npm install -g npm
 
 ######################### Python #########################
 
