@@ -237,7 +237,7 @@ workdir="$(mktemp -d)"
 
 ######################### Discord #########################
 
-wget -O "$workdir/discord.deb" https://dl.discordapp.net/apps/linux/0.0.11/discord-0.0.11.deb
+wget -O "$workdir/discord.deb" https://dl.discordapp.net/apps/linux/0.0.12/discord-0.0.12.deb
 sudo dpkg -i "$workdir/discord.deb"
 sudo apt update && sudo apt install -y -f
 
