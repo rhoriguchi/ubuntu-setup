@@ -126,6 +126,11 @@ sudo apt update && sudo apt install -y terraform
 
 terraform -install-autocomplete
 
+######################### Terragrunt #########################
+
+sudo curl -SL https://github.com/gruntwork-io/terragrunt/releases/download/v0.25.1/terragrunt_linux_amd64 -o /usr/local/bin/terragrunt
+sudo chmod +x /usr/local/bin/terragrunt
+
 ######################### Spotify #########################
 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
