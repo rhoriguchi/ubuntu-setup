@@ -20,6 +20,7 @@ sudo apt update && sudo apt install -y \
   make \
   mono-complete \
   neofetch \
+  network-manager-openconnect-gnome \
   postgresql-client \
   qbittorrent \
   steam \
