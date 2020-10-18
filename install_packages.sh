@@ -295,13 +295,6 @@ Type=Application
 Icon=/usr/local/postman/app/resources/app/assets/icon.png
 EOL
 
-######################### Shift #########################
-
-wget -O "$workdir/shift.zip" https://update.tryshift.com/download/version/5.0.81-stable/linux_32
-unzip -o "$workdir/shift.zip" -d "$workdir/shift"
-sudo mv -f "$workdir/shift/Shift-linux-x64" /usr/local/shift
-/usr/local/shift/Shift &
-
 ######################### belenaEtcher #########################
 
 wget -O "$workdir/belenaEtcher.zip" https://github.com/balena-io/etcher/releases/download/v1.5.109/balena-etcher-electron-1.5.109-linux-x64.zip

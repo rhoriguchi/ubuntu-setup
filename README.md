@@ -23,7 +23,6 @@ Login to:
 - Resilio Sync
 - Steam
 - TeamViewer
-- shift
 
 ### Visual Studio Code
 
