@@ -179,35 +179,36 @@ echo "deb http://linux.teamviewer.com/deb stable main" | sudo tee /etc/apt/sourc
 curl -SL https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc | sudo apt-key add -
 sudo apt update && sudo apt install -y teamviewer
 
-######################### NordVPN #########################
+######################### ProtonVPN #########################
 
-echo "deb https://repo.nordvpn.com/deb/nordvpn/debian stable main" | sudo tee /etc/apt/sources.list.d/nordvpn.list
-curl -SL https://repo.nordvpn.com/gpg/nordvpn_public.asc | sudo apt-key add -
-sudo apt update && sudo apt install -y nordvpn
+sudo apt update && sudo apt install -y \
+  dialog \
+  openvpn \
+  python3-pip \
+  python3-setuptools
 
-nordvpn set cybersec on
-nordvpn set technology nordlynx
+sudo pip install protonvpn-cli --upgrade
 
-sudo cp icons/nordvpn.svg /usr/share/icons/nordvpn.svg
+sudo cp icons/protonvpn.png /usr/share/icons/protonvpn.png
 
-sudo bash -c "cat > /usr/share/applications/nordvpnConnect.desktop" << EOL
+sudo bash -c "cat > /usr/share/applications/protonvpnConnect.desktop" << EOL
 [Desktop Entry]
-Name=NordVPN connect
-Exec=bash -c "nordvpn connect"
+Name=ProtonVPN connect
+Exec=bash -c "sudo protonvpn connect --fastest"
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=/usr/share/icons/nordvpn.svg
+Icon=/usr/share/icons/protonvpn.png
 EOL
 
-sudo bash -c "cat > /usr/share/applications/nordvpnDisconnect.desktop" << EOL
+sudo bash -c "cat > /usr/share/applications/protonvpnDisconnect.desktop" << EOL
 [Desktop Entry]
-Name=NordVPN disconnect
-Exec=bash -c "nordvpn disconnect"
+Name=ProtonVPN disconnect
+Exec=bash -c "sudo protonvpn disconnect"
 StartupNotify=true
 Terminal=true
 Type=Application
-Icon=/usr/share/icons/nordvpn.svg
+Icon=/usr/share/icons/protonvpn.png
 EOL
 
 ######################### Mega #########################

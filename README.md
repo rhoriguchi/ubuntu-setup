@@ -30,10 +30,10 @@ Install **Settings Sync** extension
 Manualy enter GistId and token
 Download settings
 
-### Login to NordVPN
+### Init to ProtonVPN
 
 ```bash
-nordvpn login
+sudo protonvpn init
 ```
 
 ### GitHub
