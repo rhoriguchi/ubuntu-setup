@@ -238,17 +238,21 @@ Jjiho4rUEW8c1EUPvK8v1jRGwjYED3ihJ6510eblYFPl+6k91OWlScnxuVVAmSn4
 EOL
 sudo apt update && sudo apt install -y megasync
 
+####################################################################
 ######################### Manual downloads #########################
-
-workdir="$(mktemp -d)"
+####################################################################
 
 ######################### Discord #########################
+
+workdir="$(mktemp -d)"
 
 wget -O "$workdir/discord.deb" https://dl.discordapp.net/apps/linux/0.0.12/discord-0.0.12.deb
 sudo dpkg -i "$workdir/discord.deb"
 sudo apt update && sudo apt install -y -f
 
 ######################### ytop #########################
+
+workdir="$(mktemp -d)"
 
 wget -O "$workdir/ytop.tar.gz" "https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-$(uname -m)-unknown-linux-gnu.tar.gz"
 tar -C "$workdir" -xzf "$workdir/ytop.tar.gz"
@@ -268,11 +272,15 @@ EOL
 
 ######################### GitKraken #########################
 
+workdir="$(mktemp -d)"
+
 wget -O "$workdir/gitkraken.deb" https://release.axocdn.com/linux/gitkraken-$(dpkg --print-architecture).deb
 sudo dpkg -i "$workdir/gitkraken.deb"
 sudo apt update && sudo apt install -y -f
 
 ######################### JetBrains Toolbox #########################
+
+workdir="$(mktemp -d)"
 
 wget -O "$workdir/jetbrains-toolbox.tar.gz" https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.17.7391.tar.gz
 tar -C "$workdir" -xzf "$workdir/jetbrains-toolbox.tar.gz"
@@ -280,6 +288,8 @@ sudo mv -f "$workdir/jetbrains-toolbox-1.17.7391" "/usr/local/jetbrains-toolbox"
 /usr/local/jetbrains-toolbox/jetbrains-toolbox
 
 ######################### Postman #########################
+
+workdir="$(mktemp -d)"
 
 wget -O "$workdir/postman.tar.gz" https://dl.pstmn.io/download/latest/linux64
 tar -C "$workdir" -xzf "$workdir/postman.tar.gz"
@@ -297,6 +307,8 @@ Icon=/usr/local/postman/app/resources/app/assets/icon.png
 EOL
 
 ######################### belenaEtcher #########################
+
+workdir="$(mktemp -d)"
 
 wget -O "$workdir/belenaEtcher.zip" https://github.com/balena-io/etcher/releases/download/v1.5.109/balena-etcher-electron-1.5.109-linux-x64.zip
 unzip -o "$workdir/belenaEtcher.zip" -d "$workdir/belenaEtcher"
@@ -317,6 +329,5 @@ EOL
 
 ######################### Clean up manual downloads #########################
 
-sudo rm -rf "$workdir"
 sudo apt update && sudo apt install -y -f
 sudo apt autoremove -y
