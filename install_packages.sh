@@ -282,9 +282,9 @@ sudo apt update && sudo apt install -y -f
 
 workdir="$(mktemp -d)"
 
-wget -O "$workdir/jetbrains-toolbox.tar.gz" https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.17.7391.tar.gz
+wget -O "$workdir/jetbrains-toolbox.tar.gz" https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.18.7455.tar.gz
 tar -C "$workdir" -xzf "$workdir/jetbrains-toolbox.tar.gz"
-sudo mv -f "$workdir/jetbrains-toolbox-1.17.7391" "/usr/local/jetbrains-toolbox"
+sudo mv -f "$workdir/jetbrains-toolbox-1.18.7455" "/usr/local/jetbrains-toolbox"
 /usr/local/jetbrains-toolbox/jetbrains-toolbox
 
 ######################### Postman #########################
