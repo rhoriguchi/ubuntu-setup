@@ -76,6 +76,51 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 gsettings set org.gnome.shell.extensions.dash-to-dock show-favorites false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 
+######################### GNOME Extension - Caffeine #########################
+
+# TODO does currently not work
+
+workdir="$(mktemp -d)"
+
+mkdir -p ~/.local/share/gnome-shell/extensions
+rm -rf ~/.local/share/gnome-shell/extensions/caffeine@patapon.info
+
+# TODO use fixed version
+git clone https://github.com/eonpatapon/gnome-shell-extension-caffeine.git "$workdir"
+cp -r "$workdir/caffeine@patapon.info" ~/.local/share/gnome-shell/extensions/
+
+sudo cp /home/rhoriguchi/.local/share/gnome-shell/extensions/caffeine@patapon.info/schemas/org.gnome.shell.extensions.caffeine.gschema.xml /usr/share/glib-2.0/schemas
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+gsettings set org.gnome.shell.extensions.caffeine enable-fullscreen false
+
+######################### GNOME Extension - Unite Shell #########################
+
+# TODO does currently not work
+
+workdir="$(mktemp -d)"
+
+sudo apt update && sudo apt install -y x11-utils
+
+mkdir -p ~/.local/share/gnome-shell/extensions
+rm -rf ~/.local/share/gnome-shell/extensions/unite@hardpixel.eu
+
+wget -O "$workdir/unite-shell.zip" https://github.com/hardpixel/unite-shell/releases/download/v41/unite-shell-v41.zip
+unzip -o "$workdir/unite-shell.zip" -d ~/.local/share/gnome-shell/extensions
+
+sudo cp /home/rhoriguchi/.local/share/gnome-shell/extensions/unite@hardpixel.eu/schemas/org.gnome.shell.extensions.unite.gschema.xml /usr/share/glib-2.0/schemas
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+# TODO figur out what is needed
+gsettings set org.gnome.shell.extensions.unite extend-left-box false
+gsettings set org.gnome.shell.extensions.unite hide-activities-button 'always'
+gsettings set org.gnome.shell.extensions.unite hide-aggregate-menu-arrow true
+gsettings set org.gnome.shell.extensions.unite hide-app-menu-icon true
+gsettings set org.gnome.shell.extensions.unite notifications-position 'center'
+gsettings set org.gnome.shell.extensions.unite show-desktop-name false
+gsettings set org.gnome.shell.extensions.unite show-window-buttons 'always'
+gsettings set org.gnome.shell.extensions.unite show-window-title 'never'
+
 ######################### GNOME Terminal #########################
 
 black="#000000"

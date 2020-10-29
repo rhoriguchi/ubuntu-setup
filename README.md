@@ -56,3 +56,16 @@ echo 'https://USERNAME:PASSWORD@github.com' > ~/.git-credentials
   - PyCharm Professional
   - WebStorm
   - DataGrip
+
+### GNOME Extensions
+
+Realod shell:
+
+`Alt` + `F2` -> `r` -> `ENTER`
+
+Enable plugins
+
+```bash
+gnome-extensions enable caffeine@patapon.info
+gnome-extensions enable unite@hardpixel.eu
+```
