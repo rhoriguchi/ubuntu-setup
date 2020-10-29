@@ -13,9 +13,9 @@ battery_command=(
     "service bluetooth stop"
 )
 
-sudo bash -c "cat > /etc/udev/rules.d/99-powertrigger.rules" << EOL
-ACTION==\"change\", SUBSYSTEM==\"power_supply\", KERNEL==\"AC0\", ATTR{online}==\"1\", RUN+=\"/bin/sh -c '${ac_command[@]}'\"
-ACTION==\"change\", SUBSYSTEM==\"power_supply\", KERNEL==\"AC0\", ATTR{online}==\"0\", RUN+=\"/bin/sh -c '${battery_command[@]}'\"
+sudo dd status=none of=/etc/udev/rules.d/99-powertrigger.rules << EOL
+ACTION=="change", SUBSYSTEM=="power_supply", KERNEL=="AC0", ATTR{online}=="1", RUN+="/bin/sh -c '${ac_command[@]}'"
+ACTION=="change", SUBSYSTEM=="power_supply", KERNEL=="AC0", ATTR{online}=="0", RUN+="/bin/sh -c '${battery_command[@]}'"
 EOL
 
 sudo udevadm control --reload-rules
