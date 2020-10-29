@@ -104,7 +104,7 @@ sudo systemctl start docker
 
 sudo cp icons/docker.png /usr/share/icons/docker.png
 
-sudo bash -c "cat > /usr/share/applications/dockerStats.desktop" << EOL
+sudo dd status=none of=/usr/share/applications/dockerStats.desktop << EOL
 [Desktop Entry]
 Name=Docker stats
 Exec=bash -c "docker stats \$(docker ps -q)"
@@ -191,7 +191,7 @@ sudo pip install protonvpn-cli --upgrade
 
 sudo cp icons/protonvpn.png /usr/share/icons/protonvpn.png
 
-sudo bash -c "cat > /usr/share/applications/protonvpnConnect.desktop" << EOL
+sudo dd status=none of=/usr/share/applications/protonvpnConnect.desktop << EOL
 [Desktop Entry]
 Name=ProtonVPN connect
 Exec=bash -c "sudo protonvpn connect --fastest"
@@ -201,7 +201,7 @@ Type=Application
 Icon=/usr/share/icons/protonvpn.png
 EOL
 
-sudo bash -c "cat > /usr/share/applications/protonvpnDisconnect.desktop" << EOL
+sudo dd status=none of=/usr/share/applications/protonvpnDisconnect.desktop << EOL
 [Desktop Entry]
 Name=ProtonVPN disconnect
 Exec=bash -c "sudo protonvpn disconnect"
@@ -260,7 +260,7 @@ sudo rm -rf /usr/local/bin/ytop
 sudo mv "$workdir/ytop" /usr/local/bin/ytop
 sudo chmod +x /usr/local/bin/ytop
 
-sudo bash -c "cat > /usr/share/applications/ytop.desktop" << EOL
+sudo dd status=none of=/usr/share/applications/ytop.desktop << EOL
 [Desktop Entry]
 Name=ytop
 Exec=bash -c "ytop --per-cpu"
@@ -296,7 +296,7 @@ tar -C "$workdir" -xzf "$workdir/postman.tar.gz"
 sudo rm -rf /usr/local/postman
 sudo mv "$workdir/Postman" /usr/local/postman
 
-sudo bash -c "cat > /usr/share/applications/postman.desktop" << EOL
+sudo dd status=none of=/usr/share/applications/postman.desktop << EOL
 [Desktop Entry]
 Name=Postman
 Exec=/usr/local/postman/Postman
@@ -317,7 +317,7 @@ sudo chmod +x /usr/local/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
 
-sudo bash -c "cat > /usr/share/applications/belenaEtcher.desktop" << EOL
+sudo dd status=none of=/usr/share/applications/belenaEtcher.desktop << EOL
 [Desktop Entry]
 Name=belenaEtcher
 Exec=/usr/local/belenaEtcher.AppImage
