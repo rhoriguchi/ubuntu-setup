@@ -105,7 +105,7 @@ sudo apt update && sudo apt install -y x11-utils
 mkdir -p ~/.local/share/gnome-shell/extensions
 rm -rf ~/.local/share/gnome-shell/extensions/unite@hardpixel.eu
 
-wget -O "$workdir/unite-shell.zip" https://github.com/hardpixel/unite-shell/releases/download/v41/unite-shell-v41.zip
+curl -SL https://github.com/hardpixel/unite-shell/releases/download/v41/unite-shell-v41.zip -o "$workdir/unite-shell.zip"
 unzip -o "$workdir/unite-shell.zip" -d ~/.local/share/gnome-shell/extensions
 
 sudo cp /home/rhoriguchi/.local/share/gnome-shell/extensions/unite@hardpixel.eu/schemas/org.gnome.shell.extensions.unite.gschema.xml /usr/share/glib-2.0/schemas

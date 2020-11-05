@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO use sudo install -D -m0755 "$workdir/ytop" /usr/local/bin/ytop
-# TODO always use curl
-
 set -ex
 
 ######################### Generic Apt packages #########################
@@ -29,7 +26,6 @@ sudo apt update && sudo apt install -y \
   steam \
   unzip \
   vlc \
-  wget \
   wireguard \
   zsh
 
@@ -124,11 +120,6 @@ Type=Application
 Icon=/usr/share/icons/docker.png
 EOL
 
-######################### Docker Compose #########################
-
-sudo curl -SL "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
 ######################### Terraform #########################
 
 curl -SL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
@@ -136,11 +127,6 @@ echo "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) mai
 sudo apt update && sudo apt install -y terraform
 
 terraform -install-autocomplete
-
-######################### Terragrunt #########################
-
-sudo curl -SL https://github.com/gruntwork-io/terragrunt/releases/download/v0.25.1/terragrunt_linux_amd64 -o /usr/local/bin/terragrunt
-sudo chmod +x /usr/local/bin/terragrunt
 
 ######################### Spotify #########################
 
@@ -252,11 +238,25 @@ sudo apt update && sudo apt install -y megasync
 ######################### Manual downloads #########################
 ####################################################################
 
+######################### Docker Compose #########################
+
+workdir="$(mktemp -d)"
+
+curl -SL "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o "$workdir/docker-compose"
+sudo install -D -m0755 "$workdir/docker-compose" /usr/local/bin/docker-compose
+
+######################### Terragrunt #########################
+
+workdir="$(mktemp -d)"
+
+curl -SL https://github.com/gruntwork-io/terragrunt/releases/download/v0.25.1/terragrunt_linux_amd64 -o "$workdir/terragrunt"
+sudo install -D -m0755 "$workdir/terragrunt" /usr/local/bin/terragrunt
+
 ######################### Discord #########################
 
 workdir="$(mktemp -d)"
 
-wget -O "$workdir/discord.deb" https://dl.discordapp.net/apps/linux/0.0.12/discord-0.0.12.deb
+curl -SL https://dl.discordapp.net/apps/linux/0.0.12/discord-0.0.12.deb -o "$workdir/discord.deb"
 sudo dpkg -i "$workdir/discord.deb"
 sudo apt update && sudo apt install -y -f
 
@@ -264,7 +264,7 @@ sudo apt update && sudo apt install -y -f
 
 workdir="$(mktemp -d)"
 
-wget -O "$workdir/ytop.tar.gz" "https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-$(uname -m)-unknown-linux-gnu.tar.gz"
+curl -SL "https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-$(uname -m)-unknown-linux-gnu.tar.gz" -o "$workdir/ytop.tar.gz"
 tar -C "$workdir" -xzf "$workdir/ytop.tar.gz"
 sudo install -D -m0755 "$workdir/ytop" /usr/local/bin/ytop
 
@@ -282,7 +282,7 @@ EOL
 
 workdir="$(mktemp -d)"
 
-wget -O "$workdir/gitkraken.deb" https://release.axocdn.com/linux/gitkraken-$(dpkg --print-architecture).deb
+curl -SL "https://release.axocdn.com/linux/gitkraken-$(dpkg --print-architecture).deb" -o "$workdir/gitkraken.deb"
 sudo dpkg -i "$workdir/gitkraken.deb"
 sudo apt update && sudo apt install -y -f
 
@@ -290,16 +290,16 @@ sudo apt update && sudo apt install -y -f
 
 workdir="$(mktemp -d)"
 
-wget -O "$workdir/jetbrains-toolbox.tar.gz" https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.18.7455.tar.gz
+curl -SL https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.18.7455.tar.gz -o "$workdir/jetbrains-toolbox.tar.gz"
 tar -C "$workdir" -xzf "$workdir/jetbrains-toolbox.tar.gz"
-sudo mv -f "$workdir/jetbrains-toolbox-1.18.7455" "/usr/local/jetbrains-toolbox"
-/usr/local/jetbrains-toolbox/jetbrains-toolbox
+sudo install -D -m0755 "$workdir/jetbrains-toolbox-1.18.7455/jetbrains-toolbox" /usr/local/bin/jetbrains-toolbox
+/usr/local/bin/jetbrains-toolbox
 
 ######################### Postman #########################
 
 workdir="$(mktemp -d)"
 
-wget -O "$workdir/postman.tar.gz" https://dl.pstmn.io/download/latest/linux64
+curl -SL https://dl.pstmn.io/download/latest/linux64 -o "$workdir/postman.tar.gz"
 tar -C "$workdir" -xzf "$workdir/postman.tar.gz"
 sudo rm -rf /usr/local/postman
 sudo mv "$workdir/Postman" /usr/local/postman
@@ -318,17 +318,16 @@ EOL
 
 workdir="$(mktemp -d)"
 
-wget -O "$workdir/belenaEtcher.zip" https://github.com/balena-io/etcher/releases/download/v1.5.109/balena-etcher-electron-1.5.109-linux-x64.zip
-unzip -o "$workdir/belenaEtcher.zip" -d "$workdir/belenaEtcher"
-sudo mv "$workdir/belenaEtcher/balenaEtcher-1.5.109-x64.AppImage" /usr/local/belenaEtcher.AppImage
-sudo chmod +x /usr/local/belenaEtcher.AppImage
+curl -SL https://github.com/balena-io/etcher/releases/download/v1.5.109/balena-etcher-electron-1.5.109-linux-x64.zip -o "$workdir/belenaEtcher.zip"
+unzip -o "$workdir/belenaEtcher.zip" -d "$workdir"
+sudo install -D -m0755 "$workdir/balenaEtcher-1.5.109-x64.AppImage" /usr/local/bin/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
 
 sudo dd status=none of=/usr/share/applications/belenaEtcher.desktop << EOL
 [Desktop Entry]
 Name=belenaEtcher
-Exec=/usr/local/belenaEtcher.AppImage
+Exec=/usr/local/bin/belenaEtcher.AppImage
 StartupNotify=true
 Terminal=false
 Type=Application
