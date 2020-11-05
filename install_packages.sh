@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# TODO use sudo install -D -m0755 "$workdir/ytop" /usr/local/bin/ytop
+# TODO always use curl
+
 set -ex
 
 ######################### Generic Apt packages #########################
