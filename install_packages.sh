@@ -263,9 +263,7 @@ workdir="$(mktemp -d)"
 
 wget -O "$workdir/ytop.tar.gz" "https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-$(uname -m)-unknown-linux-gnu.tar.gz"
 tar -C "$workdir" -xzf "$workdir/ytop.tar.gz"
-sudo rm -rf /usr/local/bin/ytop
-sudo mv "$workdir/ytop" /usr/local/bin/ytop
-sudo chmod +x /usr/local/bin/ytop
+sudo install -D -m0755 "$workdir/ytop" /usr/local/bin/ytop
 
 sudo dd status=none of=/usr/share/applications/ytop.desktop << EOL
 [Desktop Entry]
