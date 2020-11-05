@@ -51,6 +51,13 @@ sudo apt update && sudo apt install -y \
 grep -qxF "export JAVA_HOME=/usr/lib/jvm/default-java" ~/.profile || echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> ~/.profile
 grep -qxF "export PATH=\"\$PATH:\$JAVA_HOME/bin\"" ~/.profile || echo "export PATH=\"\$PATH:\$JAVA_HOME/bin\"" >> ~/.profile
 
+######################### Haskell #########################
+
+sudo apt update && sudo apt install -y Haskell-stack
+
+sudo stack install nixfmt
+sudo install -D -m0755 /root/.local/bin/nixfmt /usr/local/bin/nixfmt
+
 ######################### Node #########################
 
 sudo apt update && sudo apt install -y \
