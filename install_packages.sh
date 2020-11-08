@@ -123,7 +123,7 @@ EOL
 ######################### Terraform #########################
 
 curl -SL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-echo "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+echo "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install -y terraform
 
 terraform -install-autocomplete
@@ -241,30 +241,34 @@ sudo apt update && sudo apt install -y megasync
 ######################### Docker Compose #########################
 
 workdir="$(mktemp -d)"
+version="1.27.4"
 
-curl -SL "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o "$workdir/docker-compose"
+curl -SL "https://github.com/docker/compose/releases/download/${version}/docker-compose-$(uname -s)-$(uname -m)" -o "$workdir/docker-compose"
 sudo install -D -m0755 "$workdir/docker-compose" /usr/local/bin/docker-compose
 
 ######################### Terragrunt #########################
 
 workdir="$(mktemp -d)"
+version="0.26.2"
 
-curl -SL https://github.com/gruntwork-io/terragrunt/releases/download/v0.25.1/terragrunt_linux_amd64 -o "$workdir/terragrunt"
+curl -SL "https://github.com/gruntwork-io/terragrunt/releases/download/v${version}/terragrunt_linux_$(dpkg --print-architecture)" -o "$workdir/terragrunt"
 sudo install -D -m0755 "$workdir/terragrunt" /usr/local/bin/terragrunt
 
 ######################### Discord #########################
 
 workdir="$(mktemp -d)"
+version="0.0.12"
 
-curl -SL https://dl.discordapp.net/apps/linux/0.0.12/discord-0.0.12.deb -o "$workdir/discord.deb"
+curl -SL "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.deb" -o "$workdir/discord.deb"
 sudo dpkg -i "$workdir/discord.deb"
 sudo apt update && sudo apt install -y -f
 
 ######################### ytop #########################
 
 workdir="$(mktemp -d)"
+version="0.6.2"
 
-curl -SL "https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-$(uname -m)-unknown-linux-gnu.tar.gz" -o "$workdir/ytop.tar.gz"
+curl -SL "https://github.com/cjbassi/ytop/releases/download/${version}/ytop-${version}-$(uname -m)-unknown-linux-gnu.tar.gz" -o "$workdir/ytop.tar.gz"
 tar -C "$workdir" -xzf "$workdir/ytop.tar.gz"
 sudo install -D -m0755 "$workdir/ytop" /usr/local/bin/ytop
 
@@ -289,10 +293,11 @@ sudo apt update && sudo apt install -y -f
 ######################### JetBrains Toolbox #########################
 
 workdir="$(mktemp -d)"
+version="1.18.7455"
 
-curl -SL https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.18.7455.tar.gz -o "$workdir/jetbrains-toolbox.tar.gz"
+curl -SL "https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-${version}.tar.gz" -o "$workdir/jetbrains-toolbox.tar.gz"
 tar -C "$workdir" -xzf "$workdir/jetbrains-toolbox.tar.gz"
-sudo install -D -m0755 "$workdir/jetbrains-toolbox-1.18.7455/jetbrains-toolbox" /usr/local/bin/jetbrains-toolbox
+sudo install -D -m0755 "$workdir/jetbrains-toolbox-${version}/jetbrains-toolbox" /usr/local/bin/jetbrains-toolbox
 /usr/local/bin/jetbrains-toolbox
 
 ######################### Postman #########################
@@ -317,10 +322,11 @@ EOL
 ######################### belenaEtcher #########################
 
 workdir="$(mktemp -d)"
+version="1.5.110"
 
-curl -SL https://github.com/balena-io/etcher/releases/download/v1.5.109/balena-etcher-electron-1.5.109-linux-x64.zip -o "$workdir/belenaEtcher.zip"
+curl -SL "https://github.com/balena-io/etcher/releases/download/v${version}/balena-etcher-electron-${version}-linux-x64.zip" -o "$workdir/belenaEtcher.zip"
 unzip -o "$workdir/belenaEtcher.zip" -d "$workdir"
-sudo install -D -m0755 "$workdir/balenaEtcher-1.5.109-x64.AppImage" /usr/local/bin/belenaEtcher.AppImage
+sudo install -D -m0755 "$workdir/balenaEtcher-${version}-x64.AppImage" /usr/local/bin/belenaEtcher.AppImage
 
 sudo cp icons/belenaEtcher.ico /usr/share/icons/belenaEtcher.ico
 
