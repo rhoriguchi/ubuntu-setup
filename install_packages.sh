@@ -25,6 +25,7 @@ sudo apt update && sudo apt install -y \
   qbittorrent \
   steam \
   unzip \
+  virtualbox \
   vlc \
   wireguard \
   zsh
