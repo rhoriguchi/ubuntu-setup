@@ -320,6 +320,19 @@ Type=Application
 Icon=/usr/local/postman/app/resources/app/assets/icon.png
 EOL
 
+######################### DisplayLink #########################
+
+# https://www.displaylink.com/downloads/ubuntu
+
+workdir="$(mktemp -d)"
+
+sudo apt update && sudo apt install -y \
+  dkms \
+  libdrm-dev
+
+unzip -o "installers/DisplayLink USB Graphics Software for Ubuntu 5.3.1.zip" -d "$workdir"
+sudo sh "$workdir/displaylink-driver-5.3.1.34.run"
+
 ######################### belenaEtcher #########################
 
 workdir="$(mktemp -d)"
