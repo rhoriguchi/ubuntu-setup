@@ -258,7 +258,7 @@ sudo install -D -m0755 "$workdir/terragrunt" /usr/local/bin/terragrunt
 ######################### Discord #########################
 
 workdir="$(mktemp -d)"
-version="0.0.12"
+version="0.0.13"
 
 curl -SL "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.deb" -o "$workdir/discord.deb"
 sudo dpkg -i "$workdir/discord.deb"
