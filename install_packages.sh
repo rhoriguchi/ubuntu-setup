@@ -336,7 +336,7 @@ sudo sh "$workdir/displaylink-driver-5.3.1.34.run"
 ######################### belenaEtcher #########################
 
 workdir="$(mktemp -d)"
-version="1.5.112"
+version="1.5.113"
 
 curl -SL "https://github.com/balena-io/etcher/releases/download/v${version}/balena-etcher-electron-${version}-linux-x64.zip" -o "$workdir/belenaEtcher.zip"
 unzip -o "$workdir/belenaEtcher.zip" -d "$workdir"
